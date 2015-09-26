@@ -1,0 +1,6 @@
+<div class="container">
+  <%= form_tag('/surveys/create', method: "post") %>
+  <%= label_tag 'title', "Survey Title:", class: 'survey-title' %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag("Create Survey") %>
+</div>

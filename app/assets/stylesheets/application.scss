@@ -1,0 +1,55 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.question-wrapper{
+display:table;
+}
+
+.question{
+  position: relative;
+  left: 1em;
+  display:table-cell;
+}
+
+.space{
+  width: 1em;
+}
+
+body{
+  background-image: url("/assets/bg_loop.png");
+  background-size: 1800px 900px;
+  z-index: -5;
+}
+
+#monkey{
+  position: relative;
+  background-image: url("/assets/jump_c.png");
+  height: 200px;
+  width: 200px;
+  left: 100px;
+  z-index: -4;
+}
+
+#monkey-wrapper{
+  position: fixed;
+  bottom: 20px;
+}
+
+.panel.panel-primary {
+  width: 800px;
+  margin: auto;
+}
+
+.btn.btn-default{
+  float: right;
+}
+
+#response_body {
+  padding: 25px;
+}
+
+#show_results {
+  position: relative;
+  top: 165px;
+  right: 24px;
+}

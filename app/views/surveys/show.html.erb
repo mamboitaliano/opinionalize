@@ -1,0 +1,21 @@
+
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @current_survey.title %></h3>
+  </div>
+
+  <a href="<%= @current_survey.id %>/results">
+    <button id="show_results" class="btn btn-default">results:</button>
+  </a>
+
+  <form id="response_body" action="/surveys/<%= @current_survey.id %>" method="post">
+    <% @current_survey.questions.each do |question| %>
+    <h1> <%= question.text %></h1><br>
+    <!-- Every question has only one answer, answer input is named according to ?:id -->
+    <input class="form-control" type="text" name=<%= question.id %>><br>
+    <% end %>
+    <input type="submit" value="submit" >
+  </form>
+
+</div>

@@ -1,0 +1,17 @@
+<h1 class="col-lg-offset-4">Survey Results</h1>
+
+<% @current_survey.questions.each do |question| %>
+  <ul class="list-group col-lg-4 col-lg-offset-4">
+      <li class="list-group-item"><h3><%= question.text %></h3>
+        <ul class="list-group">
+          <% question.responses.each do |response| %>
+              <li class="list-group-item"><%= response.text %></li>
+          <% end %>
+        </ul>
+      </li>
+  </ul>
+<% end %>
+
+<div>
+  <a href="/surveys/<%= @current_survey.id %>">back</a>
+</div>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   # resources :surveys do
   #   resources :questions
   # end
@@ -42,6 +46,16 @@ Rails.application.routes.draw do
   get 'index/logout' => 'index#logout'
 
   root 'index#index'
+
+  # Routes for Google Oauth 2.0
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+  resource :
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

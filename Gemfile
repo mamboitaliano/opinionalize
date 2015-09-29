@@ -10,3 +10,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'bcrypt'
 
+gem "omniauth-google-oauth2", "~> 0.2.1"
+
+gem 'dotenv'

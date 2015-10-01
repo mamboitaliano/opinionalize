@@ -15,10 +15,17 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
+    puts "//////////////////////////////////////////////"
+    puts auth
+    puts
+    puts auth.info.email
+    puts "//////////////////////////////////////////////"
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
+      user.username = auth.info.email
+      user.password_hash = "temp"
       user.oauth_token = auth.credentials.oauth_token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!

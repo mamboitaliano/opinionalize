@@ -45,15 +45,18 @@ Rails.application.routes.draw do
 
   get 'index/logout' => 'index#logout'
 
-  root 'index#index'
-
   # Routes for Google Oauth 2.0
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'auth/:provider/callback', to: 'sessions#create' # handles the callback from Google back to omniauth
+
+  get 'auth/failure', to: redirect('/') # used when an error occurs
+  
+  get 'signout', to: 'sessions#destroy', as: 'signout' # used when the user clicks the log out button on your website
 
   resources :sessions, only: [:create, :destroy]
-  resource :
+  resource :index_controller, only: [:show]
+
+  root to: 'index#index'
+  # root to: "index#show"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

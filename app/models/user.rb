@@ -5,12 +5,23 @@ class User < ActiveRecord::Base
   validates :password_hash, presence: true
   # users.password_hash in the database is a :string
 
-    def password
-      @password ||= Password.new(password_hash)
-    end
+  def password
+    @password ||= Password.new(password_hash)
+  end
 
-    def password=(new_password)
-      @password = Password.create(new_password)
-      self.password_hash = @password
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.oauth_token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
     end
+  end
 end

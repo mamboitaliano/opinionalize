@@ -23,7 +23,6 @@ class SurveysController < ApplicationController
   def remit
     @current_survey = Survey.find(params[:id])
 
-    # very clever, thanks harvey!
     params.each do |k, v|
       unless k.to_i == 0
         question = Question.find_by(id: k)

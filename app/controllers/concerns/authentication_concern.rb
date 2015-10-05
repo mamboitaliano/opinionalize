@@ -17,6 +17,11 @@ module AuthenticationConcern
       @current_user.session_id = SecureRandom.hex(8)
       session[:session_id] = @current_user.session_id
       redirect_to user_path(@current_user.id)
+      puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" 
+      p session[:session_id]
+      p "DB session value is "
+      p @current_user.session_id
+      puts "-- -- -- -- -- -- -- -- -- -- -- -- -- --"
     else
       redirect_to '/'
     end

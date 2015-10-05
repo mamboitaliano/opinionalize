@@ -6,13 +6,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    if session[:current_session_id] != nil
+    @current_user = User.find(params[:id])
+    puts "{{{{{{{{{}}}}}}}}}{{{{{{{{{}}}}}}}}"
+    p session[:session_id]
+    if session[:session_id] != nil
       @user_surveys = Survey.where(user_id: params[:id])
       @current_user = User.find(params[:id])
       render "user_profile"
-    else
+    elsif session[:session_id] == nil
       puts "User not logged in"
       render "/errors/404"
     end
+
   end
 end

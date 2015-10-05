@@ -1,0 +1,6 @@
+development:
+  CLIENT_ID: 764318299533-dks7chdnfm82ue120ipi383v84gr5ltb.apps.googleusercontent.com
+  CLIENT_SECRET: PQYjRseGryHbCtAuORoDOt18
+production:
+  CLIENT_ID: 764318299533-dks7chdnfm82ue120ipi383v84gr5ltb.apps.googleusercontent.com
+  CLIENT_SECRET: PQYjRseGryHbCtAuORoDOt18

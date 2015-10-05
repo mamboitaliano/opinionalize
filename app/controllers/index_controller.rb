@@ -3,6 +3,10 @@ class IndexController < ApplicationController
     render 'index'
   end
 
+  def show
+    render 'index'
+  end
+
   def login
     helper_login(params[:username], params[:password])
   end

@@ -1,3 +1,5 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 <div class="container">
 
   <div class="row">
@@ -8,7 +10,7 @@
         <input type="text" class="form-control" placeholder="Username" name="username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-<!--         <div class="checkbox">
+  <!--         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
@@ -33,6 +35,16 @@
         </div> -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <!-- <h2 class="form-signin-heading">Sign in with Google</h2> -->
+      <div>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      </div>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
   </div>
 </div> <!-- /container -->

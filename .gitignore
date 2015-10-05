@@ -49,3 +49,9 @@ build/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+
+# Ignore .env
+.env
+
+# Ignore environment_variables.yaml
+/config/environment_variables.yaml

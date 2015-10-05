@@ -13,10 +13,18 @@ module AuthenticationConcern
   def helper_login(username, password)
     @current_user =  User.find_by(username: username)
     if @current_user.password = password
+
       session[:current_user_id] = @current_user.id
-      @current_user.session_id = SecureRandom.hex(8)
-      session[:session_id] = @current_user.session_id
+      @current_user.session_id = session[:session_id]
+      @current_user.save!
       redirect_to user_path(@current_user.id)
+      
+      puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" 
+      p session[:session_id]
+      p "DB session value is "
+      p @current_user.session_id
+      puts "-- -- -- -- -- -- -- -- -- -- -- -- -- --"
+    
     else
       redirect_to '/'
     end
@@ -27,6 +35,11 @@ module AuthenticationConcern
     session[:session_id] = nil
     @current_user = User.find_by(session_id: params[:session_id])
     @current_user.session_id = nil
+    puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" 
+    p session[:current_user_id]
+    p "DB session value is "
+    p @current_user.session_id
+    puts "-- -- -- -- -- -- -- -- -- -- -- -- -- --"
     redirect_to '/'
   end
 
@@ -42,7 +55,8 @@ module AuthenticationConcern
   end
 
   def current_user
-    User.find(session[:current_user_id])
+    @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
+    # puts @current_user
   end
 
 end

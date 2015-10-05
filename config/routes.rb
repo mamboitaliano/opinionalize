@@ -45,6 +45,9 @@ Rails.application.routes.draw do
 
   get 'index/logout' => 'index#logout'
 
+  # Routes to handle errors
+  resources :errors
+
   # Routes for Google Oauth 2.0
   get 'auth/:provider/callback', to: 'sessions#create' # handles the callback from Google back to omniauth
 

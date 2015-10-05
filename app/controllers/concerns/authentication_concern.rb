@@ -27,6 +27,11 @@ module AuthenticationConcern
     session[:session_id] = nil
     @current_user = User.find_by(session_id: params[:session_id])
     @current_user.session_id = nil
+    puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" 
+    p session[:current_user_id]
+    p "DB session value is "
+    p @current_user.session_id
+    puts "-- -- -- -- -- -- -- -- -- -- -- -- -- --"
     redirect_to '/'
   end
 

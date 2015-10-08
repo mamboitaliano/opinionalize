@@ -28,7 +28,7 @@ class SurveysController < ApplicationController
         question = Question.find_by(id: k)
         question.responses << Response.create!(text: v)
       else
-        "You're a butterface!"
+        "Error writing to database"
         # erb :'surveys/survey_show'
       end
     end

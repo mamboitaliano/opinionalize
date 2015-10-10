@@ -3,5 +3,8 @@
 	<div class="question-wrapper">
 		<p class="question"><%=@last_question.text%></p>
 		<div class="space"></div>
+        <%= form_tag delete_question_path(@survey, @last_question), method:'DELETE', class: "delete-question-form", remote: true do %>
+          <%= submit_tag "Delete" %>
+        <% end %>
     </div>
 </div>

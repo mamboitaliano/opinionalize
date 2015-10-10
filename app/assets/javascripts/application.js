@@ -50,7 +50,7 @@ $(document).ready(function() {
     request.done(function(questionPartial){
       console.log(questionPartial);
       $($('#add_question').children()[2]).val('');
-      $(questionPartial).hide().appendTo('.question-container').fadeIn(1000);
+      $(questionPartial).hide().appendTo('.question-container').fadeIn(500);
     });
 
     request.fail(function(serverData){

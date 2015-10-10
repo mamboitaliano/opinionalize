@@ -62,11 +62,18 @@ class SurveysController < ApplicationController
   def delete_question
     question = Question.find_by(id: params[:question_id])
     survey = Survey.find_by(id: params[:survey_id])
-    Question.destroy(question.id)
+    p "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    # p question.id.to_i
+    # p question.text
+    qId = params[:question_id].to_i
+    p qId
+    p "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    Question.delete(qId)
     survey.save
     if request.xhr?
       render nothing: true, status: :ok
     else
+      p "REDIRECTING ---------------------------"
       redirect_to "/surveys/#{survey.id}/edit"
     end
   end

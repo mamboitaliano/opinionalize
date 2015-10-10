@@ -3,24 +3,43 @@
 //= require bootstrap-sprockets
 //= require jquery.spritely.js
 
-
 $(document).ready(function() {
 
-  $(document).on('ajax:success', '.delete-question-form', function(){
-    var panel = $(this).closest('.panel');
-    panel.fadeOut(function(){ panel.remove(); });
+  // AJAX call to remove a question from the DOM once delete button is hit
+  $('.delete-question-form').on('click', function(e) {
+    e.preventDefault();
+    console.log("DELETE ajax call being hit");
+
+    var form = this;
+    var url = $(this).attr("action");
+    var type = "DELETE";
+    var data = $(this).serialize();
+
+    var request = $.ajax({
+      url: url,
+      type: type,
+      data: data
+    });
+
+    request.done(function(ajaxDelete) {
+      var panel = $(form).parent().parent();
+      $(panel).fadeOut(500).done().remove();
+    });
+
+    request.fail(function(serverData){
+      console.log("FAIL: " + serverData);
+    });
   });
 
-
+  // AJAX call to add a question to the DOM once 'add question' button is hit
   $('#add_question').on("submit", function(e){
-    console.log("SUBMIT!")
     e.preventDefault();
+    console.log("SUBMIT!-----------------------------------------------")
 
     var form = this;
     var url = $(this).attr("action");
     var type = "PUT";
     var data = $(this).serialize();
-    debugger;
 
     var request = $.ajax({
       url: url,
@@ -29,15 +48,22 @@ $(document).ready(function() {
     });
 
     request.done(function(questionPartial){
-      console.log(questionPartial)
+      console.log(questionPartial);
       $($('#add_question').children()[2]).val('');
       $(questionPartial).hide().appendTo('.question-container').fadeIn(1000);
     });
 
     request.fail(function(serverData){
-      console.log("FAIL: " + serverData)
+      console.log("FAIL: " + serverData);
     });
   });
+
+
+  // $(document).on('ajax:success', '.delete-question-form', function() {
+  //   console.log("IS THIS WORKING YET?");
+  //   var panel = $(this).closest('.panel');
+  //   panel.fadeOut(function() { panel.remove(); });
+  // });
 
   // $('.question-container').on('submit', "#delete_button", function(e){
   //   e.preventDefault();
@@ -72,7 +98,7 @@ $(document).ready(function() {
   //             speed: 4000,
   //             pause: 3000
   //         })
-  //   .isDraggable()
-  //   .activeOnClick()
+  //   .isDraggable();
+  //   .activeOnClick();
   //   .active();
 });

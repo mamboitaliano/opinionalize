@@ -36,44 +36,44 @@ $(document).ready(function() {
   // });
 
 
-  // $('#add_question').on("submit", function(e){
-  //   console.log("SUBMIT!")
-  //   e.preventDefault();
+  $('#add_question').on("submit", function(e){
+    console.log("SUBMIT!")
+    e.preventDefault();
 
-  //   var form = this;
-  //   var url = $(this).attr("action");
-  //   var type = "POST";
-  //   var data = $(this).serialize();
+    var form = this;
+    var url = $(this).attr("action");
+    var type = "POST";
+    var data = $(this).serialize();
+    debugger;
 
-  //   var request = $.ajax({
-  //     url: url,
-  //     type: type,
-  //     data: data
-  //   });
+    var request = $.ajax({
+      url: url,
+      type: type,
+      data: data
+    });
 
-  //   request.done(function(questionPartial){
-  //     console.log(questionPartial)
-  //     $($('#add_question').children()[2]).val('')
-  //     $('.question-container').append(questionPartial);
+    request.done(function(questionPartial){
+      console.log(questionPartial)
+      $($('#add_question').children()[2]).val('')
+      $('.question-container').append(questionPartial);
+    });
 
-  //   });
-  //   request.fail(function(serverData){
-  //     // console.log("FAIL: " + serverData)
-  //   });
+    request.fail(function(serverData){
+      console.log("FAIL: " + serverData)
+    });
+  });
 
-  // });
-
-  $('body').pan({fps: 30, speed: 2, dir: 'left'});
-  $('#monkey').sprite({fps: 6, no_of_frames: 5})
-    .spRandom({
-              top: 0,
-              left: 1200,
-              right: 100,
-              bottom: 0,
-              speed: 4000,
-              pause: 3000
-          })
-    .isDraggable()
-    .activeOnClick()
-    .active();
+  // $('body').pan({fps: 30, speed: 2, dir: 'left'});
+  // $('#monkey').sprite({fps: 6, no_of_frames: 5})
+  //   .spRandom({
+  //             top: 0,
+  //             left: 1200,
+  //             right: 100,
+  //             bottom: 0,
+  //             speed: 4000,
+  //             pause: 3000
+  //         })
+  //   .isDraggable()
+  //   .activeOnClick()
+  //   .active();
 });

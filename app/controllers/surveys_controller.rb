@@ -49,9 +49,9 @@ class SurveysController < ApplicationController
     p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$ CASH MONEY $$$$$$$$$$$$$$$$$$$$$$$$$"
     @survey=Survey.find(params[:id])
     @survey.questions << @question = Question.create(text: params[:text])
-    @last_question = Survey.questions.last
+    @last_question = @survey.questions.last
     if request.xhr?
-      render 'surveys/_question_partial'
+      render 'surveys/_question_partial', layout: false
     else
       redirect_to "/surveys/#{@survey.id}/edit"
     end

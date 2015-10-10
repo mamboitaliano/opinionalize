@@ -42,7 +42,7 @@ $(document).ready(function() {
 
     var form = this;
     var url = $(this).attr("action");
-    var type = "POST";
+    var type = "PUT";
     var data = $(this).serialize();
     debugger;
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
     request.done(function(questionPartial){
       console.log(questionPartial)
-      $($('#add_question').children()[2]).val('')
+      $($('#add_question').children()[2]).val('');
       $('.question-container').append(questionPartial);
     });
 

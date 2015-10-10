@@ -1,5 +1,4 @@
-//= require jquery
-//= require jquery_ujs
+//= require jquery 
 //= require_tree .
 //= require bootstrap-sprockets
 //= require jquery.spritely.js
@@ -10,6 +9,34 @@ $(document).ready(function() {
   $(document).on('ajax:success', '.delete-question-form', function(){
     var panel = $(this).closest('.panel');
     panel.fadeOut(function(){ panel.remove(); });
+  });
+
+
+  $('#add_question').on("submit", function(e){
+    console.log("SUBMIT!")
+    e.preventDefault();
+
+    var form = this;
+    var url = $(this).attr("action");
+    var type = "PUT";
+    var data = $(this).serialize();
+    debugger;
+
+    var request = $.ajax({
+      url: url,
+      type: type,
+      data: data
+    });
+
+    request.done(function(questionPartial){
+      console.log(questionPartial)
+      $($('#add_question').children()[2]).val('');
+      $(questionPartial).hide().appendTo('.question-container').fadeIn(1000);
+    });
+
+    request.fail(function(serverData){
+      console.log("FAIL: " + serverData)
+    });
   });
 
   // $('.question-container').on('submit', "#delete_button", function(e){
@@ -35,35 +62,7 @@ $(document).ready(function() {
   //   });
   // });
 
-
-  $('#add_question').on("submit", function(e){
-    console.log("SUBMIT!")
-    e.preventDefault();
-
-    var form = this;
-    var url = $(this).attr("action");
-    var type = "PUT";
-    var data = $(this).serialize();
-    debugger;
-
-    var request = $.ajax({
-      url: url,
-      type: type,
-      data: data
-    });
-
-    request.done(function(questionPartial){
-      console.log(questionPartial)
-      $($('#add_question').children()[2]).val('');
-      $('.question-container').append(questionPartial);
-    });
-
-    request.fail(function(serverData){
-      console.log("FAIL: " + serverData)
-    });
-  });
-
-  // $('body').pan({fps: 30, speed: 2, dir: 'left'});
+  $('body').pan({fps: 30, speed: 2, dir: 'left'});
   // $('#monkey').sprite({fps: 6, no_of_frames: 5})
   //   .spRandom({
   //             top: 0,

@@ -62,23 +62,24 @@ body{
   top: 50px;
 }
 
-.panel {
-  border: 6px solid pink;
-}
-
 .add_question {
   border: 1px solid orange;
-  position: relative;
-  float: right;
+  position: absolute;
+  right: 10%;
 }
 
-.space {
-  border: 1px solid red;
+.question {
+  width: 95%;
 }
 
 .question-wrapper {
   border: 1px solid green;
   width: 100%;
+}
+
+.question-container {
+  width: 90%;
+  background: rgba(232,232,232,0.5);
 }
 
 

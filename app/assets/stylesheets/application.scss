@@ -62,4 +62,23 @@ body{
   top: 50px;
 }
 
+.panel {
+  border: 6px solid pink;
+}
+
+.add_question {
+  border: 1px solid orange;
+  position: relative;
+  float: right;
+}
+
+.space {
+  border: 1px solid red;
+}
+
+.question-wrapper {
+  border: 1px solid green;
+  width: 100%;
+}
+
 

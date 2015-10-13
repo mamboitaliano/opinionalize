@@ -5,9 +5,9 @@
     <div class="panel panel-default">
       <div class="question-wrapper">
         <p class="question"><%=question.text%></p>
-        <div class="space"></div>
+        <!-- <div class="space"></div> -->
         <%= form_tag delete_question_path(@survey, question), method:'DELETE', class: "delete-question-form", remote: true do %>
-          <%= submit_tag "Delete" %>
+          <%= submit_tag("add question", :class => "add_question") %>
         <% end %>
       </div>
     </div>

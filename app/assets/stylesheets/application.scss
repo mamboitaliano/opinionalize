@@ -120,7 +120,19 @@ body{
 }
 
 .signin-text {
+  border: 1px solid yellow;
+  position: relative;
+  top: 30%;
   color: white;
   text-align: center;
   font-size: 40px;
 }
+
+#sigin-text-2 {
+  position: absolute;
+}
+
+#sigin-text-3 {
+  position: absolute;
+}
+

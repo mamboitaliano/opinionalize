@@ -58,6 +58,9 @@ $(document).ready(function() {
     });
   });
 
+  // Login page text animation
+  // $('#signin-text-1').fadeIn('slow').delay(10000).fadeOut('slow');
+  
 
   // $(document).on('ajax:success', '.delete-question-form', function() {
   //   console.log("IS THIS WORKING YET?");
@@ -87,8 +90,12 @@ $(document).ready(function() {
   //     console.log("FAILURE");
   //   });
   // });
+  // 
 
+  // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});
+
+  // Monkey animation
   // $('#monkey').sprite({fps: 6, no_of_frames: 5})
   //   .spRandom({
   //             top: 0,

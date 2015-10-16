@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20150716102147) do
 
   create_table "surveys", force: true do |t|
     t.string   "title"
+    t.string   "description"
+    t.boolean  "is_public"
+    t.string   "unique_url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

@@ -126,5 +126,50 @@ body{
   display: block;
 }
 
+.survey-title-container {
+  position: relative;
+  left: 10%;
+  top: 50px;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(240, 240, 240, 0.5);
+  border-radius: 25px;
+}
+
+.survey-title-form-container {
+  border: 3px solid red;
+  height: 500px;
+}
+
+.survey-title-form-container p {
+  font-family: 'Exo', sans-serif;
+  color: white;
+  font-size: 30px;
+  position: relative;
+  top: 50px;
+  left: 20px;
+}
+
+.survey-title-form {
+  border: 3px solid pink;
+  width: 500px;
+  position: relative;
+  top: 5px;
+  left: 250px;
+}
+
+.survey-description-form {
+  border: 3px solid blue;
+  width: 500px;
+  position: relative;
+  top: 5px;
+  left: 250px; 
+}
+
+.survey-name-input {
+  position: absolute;
+  left: 400px;
+}
+
 
 

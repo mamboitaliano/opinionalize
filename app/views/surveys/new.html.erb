@@ -1,6 +1,16 @@
-<div class="container">
-  <%= form_tag('/surveys/create', method: "post") %>
-  <%= label_tag 'title', "Survey Title:", class: 'survey-title' %>
-  <%= text_field_tag(:title) %>
-  <%= submit_tag("Create Survey") %>
+<div class="survey-title-container">
+	<div class="survey-title-form-container">
+		<p>name:</p>
+		<div class="survey-title-form">
+			<%= form_tag('/surveys/create', method: "post") %>
+			<%= text_field(:title, size: 50, class: 'survey-name-input') %>
+		</div>
+		<p>description:</p>
+		<div class="survey-description-form">
+			<%= text_area(:description, :description, cols: 50, rows: 5, class: 'survey-description-input')%>
+			<hr>
+			<%= submit_tag("Create Survey") %>
+		</div>
+			
+	</div>
 </div>

@@ -1,0 +1,24 @@
+<div class="edit_survey_partial">
+	<h3><%= @survey.title %></h3>
+	<div class="question-container">
+
+		<% @survey.questions.each do |question| %>
+			<div class="panel panel-default">
+				<div class="question-wrapper">
+	        		<p class="question"><%=question.text%></p>
+	        		<%= form_tag delete_question_path(@survey, question), method:'DELETE', class: "delete-question-form", remote: true do %>
+	          			<%= submit_tag("delete", :class => "add_question") %>
+	        		<% end %>
+	      		</div>
+	    	</div>
+    	<% end %>
+    	
+    </div>
+
+    <form id="add_question" action="/surveys/<%= @survey.id %>" method="POST">
+    	<input type="hidden" name="_method" value="PUT" >
+    	<input type="hidden" name="id" value=<%=@survey.id%>>
+    	<input type="text" name="text" placeholder="Question">
+    	<input type="submit" value="Add Question" >
+    </form>
+</div>

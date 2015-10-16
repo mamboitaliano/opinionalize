@@ -58,6 +58,42 @@ $(document).ready(function() {
     });
   });
 
+  $('#create_survey_btn').on("click", function(e) {
+    e.preventDefault();
+    console.log("ADD QUESTION AJAX CALL WORKING----------------------");
+
+    var form = $(this).parent().children().eq(1).children();
+    var url = $(form).attr("action");
+    var type = "POST";
+    var data = $(form).serialize();
+
+    // TDD stuff
+    console.log("Here are the variables to be passed to the AJAX call:");
+    console.log(form);
+    console.log("--------------");
+    console.log(url);
+    console.log("--------------");
+    console.log(type);
+    console.log("--------------");
+    console.log(data);
+    console.log("------------------------end--------------------------");
+
+    var request =$.ajax({
+      url: url,
+      type: type,
+      data: data
+    });
+
+    request.done(function(serverData) {
+      console.log("Here is the serverData:");
+      console.log(serverData);
+      console.log("------------------------end--------------------------");
+      $(".survey-title-container").fadeOut("slow").remove();
+      $(".ajax-container").append(serverData);
+      // debugger;
+    });
+  });
+
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});
 

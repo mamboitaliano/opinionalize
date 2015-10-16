@@ -1,21 +1,25 @@
-<div class="survey-title-container">
-	<div class="survey-title-form-container">
-		<p id="survey-name">name:</p>
-		<div class="survey-title-form">
-			<%= form_tag('/surveys/create', method: "post") %>
-			<%= text_field_tag(:title) %>
+<div class="ajax-container">
+	<div class="survey-title-container">
+		<div class="survey-title-form-container">
+			<p id="survey-name">name:</p>
+			<div class="survey-title-form">
+				<%= form_tag('/surveys/create', method: "post") %>
+				<%= text_field_tag(:title) %>
+			</div>
+			<p id="survey-description">description:</p>
+			<div class="survey-description-form">
+				<%= text_area_tag(:description, "", size: "61x5", class: 'survey-description-input')%>
+				<!-- <hr> -->
+			</div>
+			<p id="survey-visibility">make it public:</p>
+			<%= check_box_tag(:is_public) %>
+			<%= submit_tag "create", id: "create_survey_btn" %>
+			
+			<p id="survey-url">url:</p>
+
 		</div>
-		<p id="survey-description">description:</p>
-		<div class="survey-description-form">
-			<%= text_area_tag(:description, "", size: "61x5", class: 'survey-description-input')%>
-			<!-- <hr> -->
-		</div>
-		<p id="survey-visibility">make it public:</p>
-		<%= check_box_tag(:is_public) %>
-		<%= submit_tag "create", id: "create_survey_btn" %>
-		
-		<p id="survey-url">url:</p>
+
+		<%= yield %>
 
 	</div>
-</div>
-
+<div>

@@ -18,7 +18,12 @@ class SurveysController < ApplicationController
   def create
     p params
     current_user.surveys << @survey = Survey.create(title: params[:title], description: params[:description], is_public: params[:is_public])
-    redirect_to "/surveys/#{@survey.id}/edit"
+    
+    if request.xhr?
+      render 'surveys/_edit_survey_partial', layout: false
+    else
+      redirect_to "/surveys/#{@survey.id}/edit"
+    end
   end
 
   def remit

@@ -5,10 +5,6 @@
     <h3 class="panel-title"><%= @current_survey.title %></h3>
   </div>
 
-  <a href="<%= @current_survey.id %>/results">
-    <button id="show_results" class="btn btn-default">results:</button>
-  </a>
-
   <form id="response_body" action="/surveys/<%= @current_survey.id %>" method="post">
     <% @current_survey.questions.each do |question| %>
     <h1> <%= question.text %></h1><br>
@@ -17,5 +13,16 @@
     <% end %>
     <input type="submit" value="submit" >
   </form>
+</div>
 
+<div class="results-survey-button">
+  <a href="<%= @current_survey.id %>/results">
+    <button id="show_results" class="btn btn-default">results</button>
+  </a>
+</div>
+
+<div class="edit-survey-button">
+  <a href="/surveys/<%=@current_survey.id%>/edit">
+    <button id="edit_survey" class="btn btn-default">edit</button>
+  </a>
 </div>

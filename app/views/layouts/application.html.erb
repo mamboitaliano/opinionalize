@@ -7,6 +7,7 @@
   <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -22,7 +23,7 @@
         </button>
         <a class="navbar-brand" href="/">SurveyChimp :)</a>
         <% if is_logged_in? %>
-        <a class="navbar-brand" href="/users/<%= current_user.id %>"><%= current_user.username %></a>
+          <a class="navbar-brand" href="/users/<%= current_user.id %>"><%= current_user.username %></a>
         <% end %>
       </div>
 

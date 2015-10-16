@@ -31,10 +31,17 @@ module AuthenticationConcern
   end
 
   def helper_logout
+    @current_user = User.find_by(session_id: params[:session_id])
+    p "$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$% 4$%$%$%$%$%$ $%$%$%$%$%$%$$%$%%$%$%$%$%$"
+    p @current_user.id;
+    if @current_user.session_id
+      @current_user.session_id = nil
+    end
+
     session[:current_user_id] = nil
     session[:session_id] = nil
-    @current_user = User.find_by(session_id: params[:session_id])
-    @current_user.session_id = nil
+    
+
     puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" 
     p session[:current_user_id]
     p "DB session value is "

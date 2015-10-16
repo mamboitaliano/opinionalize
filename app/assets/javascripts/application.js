@@ -68,15 +68,15 @@ $(document).ready(function() {
     var data = $(form).serialize();
 
     // TDD stuff
-    console.log("Here are the variables to be passed to the AJAX call:");
-    console.log(form);
-    console.log("--------------");
-    console.log(url);
-    console.log("--------------");
-    console.log(type);
-    console.log("--------------");
-    console.log(data);
-    console.log("------------------------end--------------------------");
+    // console.log("Here are the variables to be passed to the AJAX call:");
+    // console.log(form);
+    // console.log("--------------");
+    // console.log(url);
+    // console.log("--------------");
+    // console.log(type);
+    // console.log("--------------");
+    // console.log(data);
+    // console.log("------------------------end--------------------------");
 
     var request =$.ajax({
       url: url,
@@ -88,9 +88,9 @@ $(document).ready(function() {
       console.log("Here is the serverData:");
       console.log(serverData);
       console.log("------------------------end--------------------------");
-      $(".survey-title-container").fadeOut("slow").remove();
+      $(".survey-title-container").fadeOut("slow"); 
+      $(".survey-title-container").remove();
       $(".ajax-container").append(serverData);
-      // debugger;
     });
   });
 
@@ -126,18 +126,4 @@ $(document).ready(function() {
   //   });
   // });
   // 
-
-  // Monkey animation
-  // $('#monkey').sprite({fps: 6, no_of_frames: 5})
-  //   .spRandom({
-  //             top: 0,
-  //             left: 1200,
-  //             right: 100,
-  //             bottom: 0,
-  //             speed: 4000,
-  //             pause: 3000
-  //         })
-  //   .isDraggable();
-  //   .activeOnClick();
-  //   .active();
 });

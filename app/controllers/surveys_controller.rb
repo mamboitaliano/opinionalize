@@ -16,7 +16,8 @@ class SurveysController < ApplicationController
   end
 
   def create
-    current_user.surveys << @survey = Survey.create(title: params[:title], description: params[:description])
+    p params
+    current_user.surveys << @survey = Survey.create(title: params[:title], description: params[:description], is_public: params[:is_public])
     redirect_to "/surveys/#{@survey.id}/edit"
   end
 

@@ -137,13 +137,14 @@ body{
 }
 
 .survey-title-form-container {
-  border: 3px solid red;
+  border: 3px solid white;
+  border-radius: 25px;
   height: 500px;
 }
 
 .survey-title-form-container p {
   font-family: 'Exo', sans-serif;
-  color: white;
+  color: rgb(92, 107, 168);
   font-size: 30px;
   position: relative;
   top: 50px;
@@ -198,4 +199,24 @@ body{
   padding: 12px;
   left: 0px;
   top: 63px;
+}
+
+#create_survey_btn {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  right: 100px;
+  bottom: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(92, 107, 168);
+  font-family: 'Exo', sans-serif;
+  font-size: 18px;
+}
+
+#survey-url {
+  position: absolute;
+  width: 200px;
+  left: 400px;
+  top: 319px;
 }

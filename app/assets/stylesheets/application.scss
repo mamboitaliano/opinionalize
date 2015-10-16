@@ -151,7 +151,6 @@ body{
 }
 
 .survey-title-form {
-  border: 3px solid pink;
   width: 500px;
   position: relative;
   top: 5px;
@@ -159,7 +158,6 @@ body{
 }
 
 .survey-description-form {
-  border: 3px solid blue;
   width: 500px;
   position: relative;
   top: 5px;
@@ -169,7 +167,35 @@ body{
 .survey-name-input {
   position: absolute;
   left: 400px;
+  width: 95%;
 }
 
+#title {
+  border-radius: 5px;
+  width: 100%;
+}
 
+#description {
+  border-radius: 5px;
+}
 
+.survey-ispublic-form {
+  border: 1px solid green;
+  position: relative;
+  top: 0px;
+  height: 50px;
+}
+
+#is_public {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  left: 250px;
+  top: 310px;
+}
+
+#survey-visibility {
+  padding: 12px;
+  left: 0px;
+  top: 63px;
+}

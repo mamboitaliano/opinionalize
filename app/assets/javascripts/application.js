@@ -67,17 +67,6 @@ $(document).ready(function() {
     var type = "POST";
     var data = $(form).serialize();
 
-    // TDD stuff
-    // console.log("Here are the variables to be passed to the AJAX call:");
-    // console.log(form);
-    // console.log("--------------");
-    // console.log(url);
-    // console.log("--------------");
-    // console.log(type);
-    // console.log("--------------");
-    // console.log(data);
-    // console.log("------------------------end--------------------------");
-
     var request =$.ajax({
       url: url,
       type: type,
@@ -88,9 +77,9 @@ $(document).ready(function() {
       console.log("Here is the serverData:");
       console.log(serverData);
       console.log("------------------------end--------------------------");
-      $(".survey-title-container").fadeOut("slow"); 
-      $(".survey-title-container").remove();
-      $(".ajax-container").append(serverData);
+      $(".survey-title-container").fadeOut("slow");
+      $(".survey-title-container").hide().remove();
+      $(".ajax-container").append(serverData).hide().fadeIn("slow");
     });
   });
 

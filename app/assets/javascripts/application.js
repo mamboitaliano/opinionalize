@@ -58,6 +58,8 @@ $(document).ready(function() {
     });
   });
 
+  // AJAX call to make the 'new survey' dialogue fade out and subsequently have 'add question' dialogue
+  // fade in when the "create" button is clicked
   $('#create_survey_btn').on("click", function(e) {
     e.preventDefault();
     console.log("ADD QUESTION AJAX CALL WORKING----------------------");
@@ -78,14 +80,15 @@ $(document).ready(function() {
       console.log(serverData);
       console.log("------------------------end--------------------------");
 
+      // Make .survey-title-container fade out and make .ajax-container fade in
       $('.survey-title-container').fadeOut(500).promise().done(function() {
-        console.log("starting survey-title-container removal, please wait...");
         $('.survey-title-container').remove();
-        console.log("removal complete");
         $(".ajax-container").delay(500).append(serverData).hide().fadeIn("slow");
       });
     });
   });
+
+  
 
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});

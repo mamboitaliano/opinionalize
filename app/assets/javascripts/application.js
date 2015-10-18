@@ -1,4 +1,4 @@
-//= require jquery 
+// = require jquery 
 //= require_tree .
 //= require bootstrap-sprockets
 //= require jquery.spritely.js
@@ -77,9 +77,13 @@ $(document).ready(function() {
       console.log("Here is the serverData:");
       console.log(serverData);
       console.log("------------------------end--------------------------");
-      $(".survey-title-container").fadeOut("slow");
-      $(".survey-title-container").hide().remove();
-      $(".ajax-container").append(serverData).hide().fadeIn("slow");
+
+      $('.survey-title-container').fadeOut(500).promise().done(function() {
+        console.log("starting survey-title-container removal, please wait...");
+        $('.survey-title-container').remove();
+        console.log("removal complete");
+        $(".ajax-container").delay(500).append(serverData).hide().fadeIn("slow");
+      });
     });
   });
 

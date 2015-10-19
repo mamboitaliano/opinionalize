@@ -96,12 +96,10 @@ body{
 }
 
 .question-container {
-  border: 5px solid red;
   position: relative;
   width: 90%;
   left: 5%;
   padding-bottom: 25px;
-  background: rgba(232,232,232,0.5);
 }
 
 .container {
@@ -267,5 +265,33 @@ body{
   background: rgba(255, 255, 255, 0.5);
   color: rgb(92, 107, 168);
   font-family: 'Exo', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.display-question-form-button {
+  width: 150px;
+  position: relative;
+  left: 100px;
+  top: 200px;
+}
+
+.add-question-prompt {
+  width: 500px;
+  position: relative;
+  left: 400px;
+  top: 20%;
+  font-family: 'Exo', sans-serif;
+  color: rgb(92, 107, 168);
+  font-size: 25px;
+}
+
+.add-question-prompt p:first-child {
+  position: relative;
+  font-size: 35px;
+  text-align: center; 
+  font-weight: bold;
+}
+
+.add-question-prompt p:nth-child(2) {
+  text-align: center;
 }

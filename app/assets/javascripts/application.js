@@ -88,8 +88,6 @@ $(document).ready(function() {
     });
   });
 
-  
-
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});
 

@@ -1,7 +1,17 @@
 <div class="edit_survey_partial">
-	<h3><%= @survey.title %></h3>
-	<div class="question-container">
 
+	<h3><%= @survey.title %></h3>
+
+	<div class="display-question-form-button">
+		<a href="#" class="btn btn-info btn-lg">new question</a>
+	</div>
+
+	<div class="add-question-prompt">
+		<p>Erright!</p>
+		<p>Let's start by adding your first question</p>
+	</div>
+
+	<div class="question-container">
 		<% @survey.questions.each do |question| %>
 			<div class="panel panel-default">
 				<div class="question-wrapper">
@@ -11,14 +21,7 @@
 	        		<% end %>
 	      		</div>
 	    	</div>
-    	<% end %>
-    	
+    	<% end %>	
     </div>
 
-    <form id="add_question" action="/surveys/<%= @survey.id %>" method="POST">
-    	<input type="hidden" name="_method" value="PUT" >
-    	<input type="hidden" name="id" value=<%=@survey.id%>>
-    	<input type="text" name="text" placeholder="Question">
-    	<input id="add-question-btn" type="submit" value="Add Question" >
-    </form>
 </div>

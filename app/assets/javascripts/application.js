@@ -88,6 +88,16 @@ $(document).ready(function() {
     });
   });
 
+  $(document).on('click', '#show-question-form', function() {
+    // preventDefault();
+    alert('yo!');
+    console.log("clickity click click");
+    $('.add-question-prompt-container').fadeOut(500).promise().done(function() {
+      $('.add-question-prompt-container').remove();
+      $('.edit_survey_partial').delay(500).append('<p>YOLO</p>').fadeIn("slow");
+    });
+  });
+
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});
 

@@ -237,7 +237,7 @@ body{
 .edit_survey_partial {
   position: absolute;
   left: 7%;
-  top: 13%;
+  top: 100px;
   width: 86%;
   height: 80%;
   border: 3px solid white;
@@ -268,18 +268,25 @@ body{
   font-size: 14px;
 }
 
+.add-question-prompt-container {
+  border: 3px solid red;
+  height: 80%;
+}
+
 .display-question-form-button {
+  border: 3px solid blue;
   width: 150px;
   position: relative;
   left: 100px;
-  top: 200px;
+  top: 175px;
 }
 
 .add-question-prompt {
+  border: 3px solid yellow;
   width: 500px;
   position: relative;
   left: 400px;
-  top: 20%;
+  top: 100px;
   font-family: 'Exo', sans-serif;
   color: rgb(92, 107, 168);
   font-size: 25px;

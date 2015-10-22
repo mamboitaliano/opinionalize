@@ -19,32 +19,28 @@ module AuthenticationConcern
       @current_user.save!
       redirect_to user_path(@current_user.id)
       
-      puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" 
+      puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" # print out login confirmation to console
       p session[:session_id]
       p "DB session value is "
       p @current_user.session_id
       puts "-- -- -- -- -- -- -- -- -- -- -- -- -- --"
-    
     else
       redirect_to '/'
     end
   end
 
   def helper_logout
-    @current_user = User.find_by(session_id: params[:session_id])
-    p "$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$% 4$%$%$%$%$%$ $%$%$%$%$%$%$$%$%%$%$%$%$%$"
-    p @current_user.id;
-    if @current_user.session_id
-      @current_user.session_id = nil
+    @current_user = User.find(session[:current_user_id])                  # find current user from sessionb
+    if @current_user.session_id != nil                                    # if there is a session_id stored in the database
+      @current_user.session_id = nil                                      # set it to 'nil'
     end
 
-    session[:current_user_id] = nil
-    session[:session_id] = nil
-    
+    session[:current_user_id] = nil                                       # set session current_user_id value to nil
+    session[:session_id] = nil                                            # set session_id to nil
 
-    puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is" 
+    puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- \nSession value is"   # print out confirmation to console
     p session[:current_user_id]
-    p "DB session value is "
+    puts "DB session value is "
     p @current_user.session_id
     puts "-- -- -- -- -- -- -- -- -- -- -- -- -- --"
     redirect_to '/'
@@ -63,7 +59,6 @@ module AuthenticationConcern
 
   def current_user
     @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
-    # puts @current_user
   end
 
 end

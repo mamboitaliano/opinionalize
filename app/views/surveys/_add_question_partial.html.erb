@@ -1,4 +1,4 @@
-<div> 
+<div class="new-question-form"> 
 	<form id="add_question" action="/surveys/<%= @survey.id %>" method="POST">
 		<input type="hidden" name="_method" value="PUT" >
     	<input type="hidden" name="id" value=<%=@survey.id%>>

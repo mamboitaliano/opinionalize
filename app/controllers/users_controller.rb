@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     
     puts "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
     p @current_user.session_id
-    # p @current_user.session_id
     p session[:session_id]
     p params[:id].to_i
     p @current_user.id
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
     if session[:session_id] != nil  # if session id is not nil, show profile
       if @current_user.session_id == session[:session_id]
         @user_surveys = Survey.where(user_id: @current_user.id)
-        # @current_user = User.find(params[:id])
         render "user_profile"
       else
         render "/errors/403"

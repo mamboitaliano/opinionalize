@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*
+  *=require_self
+  *=require_tree .
+  *=require rails_bootstrap_forms
+*/
+
 .question-wrapper{
 display:table;
 }

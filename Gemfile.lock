@@ -36,6 +36,7 @@ GEM
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     dotenv (2.0.2)
     erubis (2.7.0)
@@ -125,6 +126,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootstrap-sass (~> 3.3.5)
+  bootstrap_form
   dotenv
   jquery-rails
   omniauth-google-oauth2 (~> 0.2.1)

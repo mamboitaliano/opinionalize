@@ -11,6 +11,13 @@
 			<p>Erright!</p>
 			<p>Let's start by adding your first question</p>
 		</div>
+
+		<div class="add-question-form"
+			<%= bootstrap_form_for(@survey) do |f| %>
+      			<%= f.text_field :title %>
+        		<%= f.text_area :description %>
+    			<%= f.submit "submit" %>
+      		<% end %>
 	</div>
 
 	<div class="question-container">

@@ -18,7 +18,6 @@ class SurveysController < ApplicationController
   def create
     p params
     current_user.surveys << @survey = Survey.create(title: params[:title], description: params[:description], is_public: params[:is_public])
-    
     if request.xhr?
       render 'surveys/_edit_survey_partial', layout: false
     else
@@ -62,7 +61,7 @@ class SurveysController < ApplicationController
   end
 
   def delete
-
+    
   end
 
   def delete_question

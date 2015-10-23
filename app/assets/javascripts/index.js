@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 // Login page cyclical text animation
+// TODO: fix infinite counter loop
 $(document).ready(function() {
 
 	var counter = 0;

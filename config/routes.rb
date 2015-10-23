@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   get 'index/index'
 
+
+  # surveys
+
   get 'surveys/index' => 'surveys#index'
 
   get 'surveys/new' => 'surveys#new'
@@ -30,12 +33,18 @@ Rails.application.routes.draw do
 
   delete 'surveys/:id' => 'surveys#delete'
 
+  
+  # questions
+
+  get 'surveys/:survey_id/questions/new'
+
   delete 'surveys/:survey_id/questions/:question_id' => 'surveys#delete_question', as: 'delete_question'
 
   # get 'users/index'
 
   # get 'users/show'
 
+  # auth
   resources :users
 
   post 'index/login' => 'index#login'

@@ -24,12 +24,11 @@ Rails.application.routes.draw do
 
   get 'surveys/:id/results' => 'surveys#results'
 
-  get 'surveys/:id/edit' => 'surveys#editform' # just the form to edit a survey
+  get 'surveys/:id/edit' => 'surveys#editform', as: 'survey' # just the form to edit a survey
 
   put 'surveys/:id' => 'surveys#edit' # when we submit it, where it will hit
 
   delete 'surveys/:id' => 'surveys#delete'
-
 
   delete 'surveys/:survey_id/questions/:question_id' => 'surveys#delete_question', as: 'delete_question'
 

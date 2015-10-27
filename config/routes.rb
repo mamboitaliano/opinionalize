@@ -36,9 +36,9 @@ Rails.application.routes.draw do
   
   # questions
 
-  get 'surveys/:survey_id/questions/new'
+  # get 'surveys/:survey_id/questions/new'
 
-  delete 'surveys/:survey_id/questions/:question_id' => 'surveys#delete_question', as: 'delete_question'
+  # delete 'surveys/:survey_id/questions/:question_id' => 'surveys#delete_question', as: 'delete_question'
 
   # get 'users/index'
 

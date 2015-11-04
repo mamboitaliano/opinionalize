@@ -93,11 +93,23 @@ $(document).ready(function() {
     e.preventDefault();
     alert('yo!');
     console.log("clickity click click");
-    $('.add-question-prompt-container').fadeOut(500)//.promise().done(function() {
-    //   $('.add-question-prompt-container').remove();
-    //   $('.edit_survey_partial').delay(500).append('.new-question-form').fadeIn("slow");
-    // });
+    $('.add-question-prompt-container').fadeOut(500).promise().done(function() {
+      $('.add-question-prompt-container').remove();
+      // $('.edit_survey_partial').append('.new-question-form').fadeIn("slow");
+    });
+    console.log("container removed");
   });
+
+  //   $(document).on('click', '#show-question-form', function(e) {
+  //   e.preventDefault();
+  //   alert('yo!');
+  //   console.log("clickity click click");
+  //   $('.add-question-prompt-container').fadeOut(500).promise().done(function() {
+  //     $('.add-question-prompt-container').remove();
+  //     console.log("container removed");
+  //   //   $('.edit_survey_partial').delay(500).append('.new-question-form').fadeIn("slow");
+  //   });
+  // });
 
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});

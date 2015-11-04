@@ -89,8 +89,8 @@ $(document).ready(function() {
   });
 
   // Allows the 'new-question-form' to fade in when the "Add Question" button is clicked
-  $(document).on('click', '#show-question-form', function() {
-    // preventDefault();
+  $(document).on('click', '#show-question-form', function(e) {
+    e.preventDefault();
     alert('yo!');
     console.log("clickity click click");
     $('.add-question-prompt-container').fadeOut(500).promise().done(function() {

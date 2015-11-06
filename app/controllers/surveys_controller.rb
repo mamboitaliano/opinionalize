@@ -32,7 +32,6 @@ class SurveysController < ApplicationController
         question.responses << Response.create!(text: v)
       else
         "Error writing to database"
-        # erb :'surveys/survey_show'
       end
     end
     redirect_to "/surveys/#{@current_survey.id}/results"
@@ -66,12 +65,7 @@ class SurveysController < ApplicationController
   def delete_question
     question = Question.find_by(id: params[:question_id])
     survey = Survey.find_by(id: params[:survey_id])
-    p "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-    # p question.id.to_i
-    # p question.text
     qId = params[:question_id].to_i
-    p qId
-    p "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     Question.delete(qId)
     survey.save
     if request.xhr?

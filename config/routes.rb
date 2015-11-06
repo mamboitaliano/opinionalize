@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
 
-  get 'questions/index'
 
-  get 'questions/new'
+  # questions routes
 
-  get 'questions/create'
+  get 'surveys/:survey_id/questions/index' => 'questions#index'
 
-  get 'questions/show'
+  get 'surveys/:survey_id/questions/new' => 'questions#new'
 
-  get 'questions/edit'
+  post 'surveys/:survey_id/questions' => 'questions#create'
 
-  get 'questions/update'
+  get 'surveys/:survey_id/questions/:id' => 'questions#show'
 
-  get 'questions/destroy'
+  get 'surveys/:survey_id/questions/:id/edit' => 'questions#edit'
+
+  put 'survey/:survey_id/questions/:id' => 'questions#update'
+
+  delete 'survey/:survey_id/questions/:id' => 'questions#delete'
+
+
+  # sessions routes
 
   get 'sessions/create'
 

@@ -1,12 +1,25 @@
 Rails.application.routes.draw do
 
+  get 'questions/index'
+
+  get 'questions/new'
+
+  get 'questions/create'
+
+  get 'questions/show'
+
+  get 'questions/edit'
+
+  get 'questions/update'
+
+  get 'questions/destroy'
+
   get 'sessions/create'
 
   get 'sessions/destroy'
 
-  # resources :surveys do
-  #   resources :questions
-  # end
+
+  # where the hell did this come from?
 
   get '/SPACER_HERE', to: 'dont#care'
 
@@ -33,18 +46,9 @@ Rails.application.routes.draw do
 
   delete 'surveys/:id' => 'surveys#delete'
 
-  
-  # questions
-
-  # get 'surveys/:survey_id/questions/new'
-
-  # delete 'surveys/:survey_id/questions/:question_id' => 'surveys#delete_question', as: 'delete_question'
-
-  # get 'users/index'
-
-  # get 'users/show'
 
   # auth
+
   resources :users
 
   post 'index/login' => 'index#login'
@@ -53,10 +57,14 @@ Rails.application.routes.draw do
 
   get 'index/logout' => 'index#logout'
 
+
   # Routes to handle errors
+
   resources :errors
 
+
   # Routes for Google Oauth 2.0
+
   get 'auth/:provider/callback', to: 'sessions#create' # handles the callback from Google back to omniauth
 
   get 'auth/failure', to: redirect('/') # used when an error occurs

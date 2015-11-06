@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy'
 
-  # resources :surveys do
-  #   resources :questions
-  # end
+  resources :surveys do
+    resources :questions
+  end
 
   get '/SPACER_HERE', to: 'dont#care'
 

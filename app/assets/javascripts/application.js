@@ -31,6 +31,8 @@ $(document).ready(function() {
     });
   });
 
+
+
   // AJAX call to add a question to the DOM once 'add question' button is hit
   $('#add_question').on("submit", function(e){
     e.preventDefault();
@@ -57,6 +59,9 @@ $(document).ready(function() {
       console.log("FAIL: " + serverData);
     });
   });
+
+
+
 
   // AJAX call to make the 'new survey' dialogue fade out and subsequently have 'add question' dialogue
   // fade in when the "create" button is clicked
@@ -88,16 +93,21 @@ $(document).ready(function() {
     });
   });
 
+
+
+
   // Allows the 'new-question-form' to fade in when the "Add Question" button is clicked
   $(document).on('click', '#show-question-form', function(e) {
     e.preventDefault();
-    alert('yo!');
-    console.log("clickity click click");
+    alert('working!');
+
     $('.add-question-prompt-container').fadeOut(500).promise().done(function() {
       $('.add-question-prompt-container').remove();
       // $('.edit_survey_partial').append('.new-question-form').fadeIn("slow");
     });
     console.log("container removed");
+    
+    
   });
 
   //   $(document).on('click', '#show-question-form', function(e) {

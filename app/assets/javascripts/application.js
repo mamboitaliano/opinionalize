@@ -101,13 +101,18 @@ $(document).ready(function() {
     e.preventDefault();
     alert('working!');
 
+    var link_value = document.getElementById("show-question-form").getAttribute("href");
+    console.log(link_value);
+
     $('.add-question-prompt-container').fadeOut(500).promise().done(function() {
       $('.add-question-prompt-container').remove();
       // $('.edit_survey_partial').append('.new-question-form').fadeIn("slow");
     });
     console.log("container removed");
-    
-    
+
+    $(".content").load(link_value);
+
+
   });
 
   //   $(document).on('click', '#show-question-form', function(e) {

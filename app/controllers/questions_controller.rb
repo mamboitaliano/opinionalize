@@ -4,7 +4,11 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    render "_new_question_partial"
+    p "NEW QUESTION ROUTE IS BEING HIT----------------------------------------"
+    p params
+    p "-----------------------------------------------------------------------"
+    @current_survey = Survey.find(params[:survey_id])
+    render "_new_question_partial", layout: false
   end
 
   def show

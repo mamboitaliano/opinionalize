@@ -1,0 +1,24 @@
+# edit survey partial vv
+
+		<!-- Fix routing for "add question" button click -->
+<!--  		<div class="add-question-form">
+			<%= bootstrap_form_for(@survey) do |f| %>
+      			<%= f.text_field :title %>
+        		<%= f.text_area :description %>
+    			<%= f.submit "submit" %>
+      		<% end %>
+		</div> -->
+
+<!-- <div class="question-container">
+<% @survey.questions.each do |question| %>
+	<div class="panel panel-default">
+		<div class="question-wrapper">
+    		<p class="question"><%=question.text%></p>
+    		<%= form_tag delete_question_path(@survey, question), method:'DELETE', class: "delete-question-form", remote: true do %>
+      			<%= submit_tag("delete", :class => "add_question") %>
+    		<% end %>
+  		</div>
+	</div>
+<% end %>	
+  </div>
+</div> -->

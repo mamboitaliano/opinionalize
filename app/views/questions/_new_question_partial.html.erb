@@ -2,7 +2,7 @@
 	<form id="add_question" action="surveys/<%= @current_survey.id %>/questions" method="POST">
 		<input type="hidden" name="_method" value="PUT" >
     	<input type="hidden" name="id" value=<%=@current_survey.id%>>
-    	<input type="text" name="text" placeholder="Question">
+    	<input type="text" name="text" id="new-question-text-box" placeholder="Question">
     	<input id="add-question-btn" type="submit" value="Add Question" >
     </form>
 </div>

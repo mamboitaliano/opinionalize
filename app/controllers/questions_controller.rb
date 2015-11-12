@@ -15,11 +15,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @new_question = Question.create(text: params[:text])
+    @new_question = Question.create(text: params[:text], explanation: params[:explanation], survey_id: params[:survey_id])
     if request.xhr?
+      p "QUESTION CREATED-----------------------------------------------------"
       render nothing: true, status: :ok #instead of rendering something, use js to display the questions as a list
     else
-      redirect_to "/questions/@{question.id}/edit"
+      redirect_to "/surveys/#{@new_question.survey_id}/questions/#{@new_question.id}/edit"
     end
   end
 

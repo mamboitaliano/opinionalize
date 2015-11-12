@@ -112,7 +112,6 @@ $(document).ready(function() {
 
     $(".content").load(link_value);
 
-
   });
 
   //   $(document).on('click', '#show-question-form', function(e) {

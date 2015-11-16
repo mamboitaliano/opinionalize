@@ -20,6 +20,7 @@ class QuestionsController < ApplicationController
       p "QUESTION CREATED-----------------------------------------------------"
       render nothing: true, status: :ok #instead of rendering something, use js to display the questions as a list
     else
+      p "ERROR SAVING QUESITON TO DATABASE"
       redirect_to "/surveys/#{@new_question.survey_id}/questions/#{@new_question.id}/edit"
     end
   end

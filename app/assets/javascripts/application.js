@@ -33,6 +33,7 @@ $(document).ready(function() {
 
 
 
+
   // AJAX call to add a question to the DOM once 'add question' button is hit
   $('#add_question').on("submit", function(e){
     e.preventDefault();
@@ -113,15 +114,18 @@ $(document).ready(function() {
 
 
 
+
   $(document).on('click', '#add-question-btn', function(e) {
     e.preventDefault();
     console.log("ADD QUESTION AJAX CALL WORKING----------------------");
-    debugger
     
     var form = $(this).parent();
     var url = $(form).attr('action');
     var type = "POST";
     var data = $(form).serialize();
+
+    console.log(data);
+    debugger
 
     var request = $.ajax({
       url: url,
@@ -130,12 +134,18 @@ $(document).ready(function() {
     });
 
     request.done(function(serverData) {
-      console.log("Here is the serverData:");
-      console.log(serverData);
-      console.log("------------------------end--------------------------");
+      // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
     });
 
+    request.fail(function(serverData) {
+      // TODO: LOGIC TO HANDLE ERROR CREATING NEW QUESTION
+    })
+
+    console.log("------------------------end--------------------------");
   });
+
+
+
 
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});

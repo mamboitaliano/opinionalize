@@ -67,7 +67,7 @@ $(document).ready(function() {
   // fade in when the "create" button is clicked
   $('#create_survey_btn').on("click", function(e) {
     e.preventDefault();
-    console.log("ADD QUESTION AJAX CALL WORKING----------------------");
+    console.log("CREATE SURVEY AJAX CALL WORKING----------------------");
 
     var form = $(this).parent().children().eq(1).children();
     var url = $(form).attr("action");
@@ -99,7 +99,6 @@ $(document).ready(function() {
   // Allows the 'new-question-form' to fade in when the "Add Question" button is clicked
   $(document).on('click', '#show-question-form', function(e) {
     e.preventDefault();
-    alert('working!');
 
     var link_value = document.getElementById("show-question-form").getAttribute("href");
     console.log(link_value);
@@ -109,21 +108,34 @@ $(document).ready(function() {
       // $('.edit_survey_partial').append('.new-question-form').fadeIn("slow");
     });
     console.log("container removed");
-
     $(".content").load(link_value);
-
   });
 
-  //   $(document).on('click', '#show-question-form', function(e) {
-  //   e.preventDefault();
-  //   alert('yo!');
-  //   console.log("clickity click click");
-  //   $('.add-question-prompt-container').fadeOut(500).promise().done(function() {
-  //     $('.add-question-prompt-container').remove();
-  //     console.log("container removed");
-  //   //   $('.edit_survey_partial').delay(500).append('.new-question-form').fadeIn("slow");
-  //   });
-  // });
+
+
+  $(document).on('click', '#add-question-btn', function(e) {
+    e.preventDefault();
+    console.log("ADD QUESTION AJAX CALL WORKING----------------------");
+    debugger
+    
+    var form = $(this).parent();
+    var url = $(form).attr('action');
+    var type = "POST";
+    var data = $(form).serialize();
+
+    var request = $.ajax({
+      url: url,
+      type: type,
+      data: data
+    });
+
+    request.done(function(serverData) {
+      console.log("Here is the serverData:");
+      console.log(serverData);
+      console.log("------------------------end--------------------------");
+    });
+
+  });
 
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});

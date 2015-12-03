@@ -117,6 +117,7 @@ $(document).ready(function() {
 
   $(document).on('click', '#add-question-btn', function(e) {
     e.preventDefault();
+    debugger
     console.log("ADD QUESTION AJAX CALL WORKING----------------------");
     
     var form = $(this).parent();
@@ -135,6 +136,9 @@ $(document).ready(function() {
 
     request.done(function(serverData) {
       // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
+      $('#add_question').fadeOut(500).promise().done(function() {  
+        $('.add_question').remove();
+      });
     });
 
     request.fail(function(serverData) {

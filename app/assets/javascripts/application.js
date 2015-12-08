@@ -136,9 +136,14 @@ $(document).ready(function() {
 
     request.done(function(serverData) {
       // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
-      $('#add_question').fadeOut(500).promise().done(function() {  
-        $('.add_question').remove();
-      });
+      $('.new-question-form').animate({
+        bottom: '-=20' 
+      }, 1000);
+      
+      // $('.new-question-form').fadeOut(500).promise().done(function() {  
+      //   $('.new-question-form').html('<p>HI HI HI</p>').fadeIn(300);
+      //   // $('.add_question').remove();
+      // });
     });
 
     request.fail(function(serverData) {

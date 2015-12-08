@@ -136,13 +136,11 @@ $(document).ready(function() {
     request.done(function(serverData) {
       // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
       console.log("trace complete")
-      // $('.new-question-text-box').html('');
-      // $('.question-explanation-text-box').html('');
       $('#add_question')[0].reset();
       $('.new-question-form').animate({
-        top: '+=60'
-      }, 500, function() {
-        $('.content').prepend('<h4 class="question-text">TEST</h3>');
+        top: '+=35'
+      }, 500 ).promise().done(function() {
+        $('.content').prepend('<h4 class="question-text">TEST</h3>').hide().fadeIn("slow");
       });
 
       // $('.new-question-form').fadeOut(500).promise().done(function() {  

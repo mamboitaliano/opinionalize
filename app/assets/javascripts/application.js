@@ -117,7 +117,6 @@ $(document).ready(function() {
 
   $(document).on('click', '#add-question-btn', function(e) {
     e.preventDefault();
-    debugger
     console.log("ADD QUESTION AJAX CALL WORKING----------------------");
     
     var form = $(this).parent();
@@ -136,10 +135,16 @@ $(document).ready(function() {
 
     request.done(function(serverData) {
       // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
+      console.log("trace complete")
+      // $('.new-question-text-box').html('');
+      // $('.question-explanation-text-box').html('');
+      $('#add_question')[0].reset();
       $('.new-question-form').animate({
-        bottom: '-=20' 
-      }, 1000);
-      
+        top: '+=60'
+      }, 500, function() {
+        $('.content').prepend('<h4 class="question-text">TEST</h3>');
+      });
+
       // $('.new-question-form').fadeOut(500).promise().done(function() {  
       //   $('.new-question-form').html('<p>HI HI HI</p>').fadeIn(300);
       //   // $('.add_question').remove();

@@ -16,9 +16,12 @@ class QuestionsController < ApplicationController
 
   def create
     @new_question = Question.create(text: params[:text], explanation: params[:explanation], survey_id: params[:survey_id])
+    p "Newly created question-- -- -- -- -- -- --"
+    p @new_question
     if request.xhr?
       p "QUESTION CREATED-----------------------------------------------------"
-      render nothing: true, status: :ok #instead of rendering something, use js to display the questions as a list
+      # render nothing: true, status: :ok #instead of rendering something, use js to display the questions as a list
+      render "_question_partial", layout: false, status: :ok #instead of rendering something, use js to display the questions as a list
     else
       p "ERROR SAVING QUESITON TO DATABASE"
       redirect_to "/surveys/#{@new_question.survey_id}/questions/#{@new_question.id}/edit"

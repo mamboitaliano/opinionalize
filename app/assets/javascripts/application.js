@@ -135,15 +135,17 @@ $(document).ready(function() {
 
     request.done(function(serverData) {
       // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
-      console.log("trace complete");
-      console.log(data);
+      // console.log("trace complete");
+      // console.log(data);
       $('#add_question')[0].reset();
       $('.new-question-form').animate({
         top: '+=35'
-      }, 500 ).promise().done(function() {
-        $('.content').prepend('<h4 class="question-text">TEST</h3>').hide().fadeIn("slow");
+        }, 500 ).promise().done(function() {
+        $('.content').prepend(serverData).hide().fadeIn("slow");
       });
 
+      console.log("Server returning _question_partial.html.erb:")
+      console.log(serverData);
       // $('.new-question-form').fadeOut(500).promise().done(function() {  
       //   $('.new-question-form').html('<p>HI HI HI</p>').fadeIn(300);
       //   // $('.add_question').remove();

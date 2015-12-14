@@ -125,7 +125,6 @@ $(document).ready(function() {
     var data = $(form).serialize();
 
     console.log(data);
-    debugger
 
     var request = $.ajax({
       url: url,
@@ -139,7 +138,7 @@ $(document).ready(function() {
       // console.log(data);
       $('#add_question')[0].reset();
       $('.new-question-form').animate({
-        top: '+=35'
+        top: '+=40'
         }, 500 ).promise().done(function() {
         $('.content').prepend(serverData).hide().fadeIn("slow");
       });

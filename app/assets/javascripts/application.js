@@ -135,7 +135,8 @@ $(document).ready(function() {
 
     request.done(function(serverData) {
       // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
-      console.log("trace complete")
+      console.log("trace complete");
+      console.log(data);
       $('#add_question')[0].reset();
       $('.new-question-form').animate({
         top: '+=35'

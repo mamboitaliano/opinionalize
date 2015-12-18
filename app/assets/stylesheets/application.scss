@@ -350,10 +350,25 @@ body{
 }
 
 .set-resp-type-btn {
-  border: 2px solid green;
   float: left;
   display: block;
   margin-left: 100px;
   margin-top: 0px;
+  height: 100%;
   }
 
+  .required-dropdown {
+    display: block;
+    float: left;
+    margin-left: 20px;
+    height: 100%;
+  }
+
+  .required-dropdown-toggle {
+    height: 100%;
+  }
+
+  .required-dropdown ul {
+    border: 3px solid aqua;
+    display: block;
+  }

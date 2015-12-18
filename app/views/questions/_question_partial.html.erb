@@ -1,4 +1,14 @@
 <div class="question-div">
 	<p class="question-text"><%= @new_question.text %></p>
 	<button type="button" class="btn btn-primary set-resp-type-btn">Response Type</button>
+
+	<div class="dropdown">
+    	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">required
+    	<span class="caret"></span></button>
+    	<ul class="dropdown-menu">
+      		<li><a href="#">yes</a></li>
+      		<li><a href="#">no</a></li>
+    	</ul>
+  	</div>
+
 </div>

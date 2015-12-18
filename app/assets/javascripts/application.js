@@ -137,7 +137,7 @@ $(document).ready(function() {
 
       $('#add_question')[0].reset();
       $('.new-question-form').animate({
-        top: '+=40'
+        top: '+=60'
         }, 500 ).promise().done(function() {
         $('.content').prepend(serverData).hide().fadeIn("slow");
       });

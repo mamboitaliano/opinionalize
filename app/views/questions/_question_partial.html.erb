@@ -1,6 +1,6 @@
 <div class="question-div">
 	<p class="question-text"><%= @new_question.text %></p>
-	<button type="button" class="btn btn-primary set-resp-type-btn">response</button>
+	<button type="submit" formaction="/surveys/<%= @new_question.survey_id %>/questions/<%= @new_question.id %>" class="btn btn-primary set-resp-type-btn">response</button>
 
 	<div class="required-dropdown">
     	<button class="btn btn-primary dropdown-toggle required-dropdown-toggle" type="button" data-toggle="dropdown">required
@@ -10,7 +10,5 @@
       		<li><a href="#">no</a></li>
     	</ul>
   	</div>
-
-  	
 
 </div>

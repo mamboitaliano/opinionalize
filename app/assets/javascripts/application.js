@@ -109,8 +109,8 @@ $(document).ready(function() {
 
     $('.add-question-prompt-container').fadeOut(500).promise().done(function() {
       $('.add-question-prompt-container').remove();
-      // $('.edit_survey_partial').append('.new-question-form').fadeIn("slow");
     });
+
     console.log("container removed");
     $(".content").load(link_value);
   });
@@ -137,21 +137,14 @@ $(document).ready(function() {
     });
 
     request.done(function(serverData) {
-      // TODO: LOGIC TO REMOVE FORM AND DISPLAY NEWLY CREATED QUESTION
-
       $('#add_question')[0].reset();
       $('.new-question-form').animate({
         top: '+=60'
         }, 500 ).promise().done(function() {
         $('.content').prepend(serverData).hide().fadeIn("slow");
       });
-
       console.log("Server returning _question_partial.html.erb:")
       console.log(serverData);
-      // $('.new-question-form').fadeOut(500).promise().done(function() {  
-      //   $('.new-question-form').html('<p>HI HI HI</p>').fadeIn(300);
-      //   // $('.add_question').remove();
-      // });
     });
 
     request.fail(function(serverData) {
@@ -164,11 +157,16 @@ $(document).ready(function() {
 
 
 // AJAX call to specify question type
-$(document).on('click', '.set-resp-type-btn', function(e) {
-    e.preventDefault();
-    console.log("SET RESPONSE TYPE AJAX CALL WORKING----------------------");
+  $(document).on('click', '.set-resp-type-btn', function(e) {
+      e.preventDefault();
+      console.log("SET RESPONSE TYPE AJAX CALL WORKING----------------------");
+      
+      var url = $(this).attr('formaction');
 
-})
+      console.log(url);
+      debugger
+      // TODO: write code to handle setting response type
+  });
 
 
   // Pan background image

@@ -1,23 +1,6 @@
 Rails.application.routes.draw do
 
 
-  # questions routes
-
-  get 'surveys/:survey_id/questions/index' => 'questions#index'
-
-  get 'surveys/:survey_id/questions/new' => 'questions#new'
-
-  post 'surveys/:survey_id/questions' => 'questions#create'
-
-  get 'surveys/:survey_id/questions/:id' => 'questions#show'
-
-  get 'surveys/:survey_id/questions/:id/edit' => 'questions#edit'
-
-  put 'survey/:survey_id/questions/:id' => 'questions#update'
-
-  delete 'survey/:survey_id/questions/:id' => 'questions#delete'
-
-
   # sessions routes
 
   get 'sessions/create'
@@ -53,6 +36,23 @@ Rails.application.routes.draw do
   delete 'surveys/:id' => 'surveys#delete'
 
 
+  # questions routes
+
+  get 'surveys/:survey_id/questions/index' => 'questions#index'
+
+  get 'surveys/:survey_id/questions/new' => 'questions#new'
+
+  post 'surveys/:survey_id/questions' => 'questions#create'
+
+  get 'surveys/:survey_id/questions/:id' => 'questions#show'
+
+  get 'surveys/:survey_id/questions/:id/edit' => 'questions#edit'
+
+  put 'survey/:survey_id/questions/:id' => 'questions#update'
+
+  delete 'survey/:survey_id/questions/:id' => 'questions#delete'
+
+
   # auth
 
   resources :users
@@ -67,7 +67,6 @@ Rails.application.routes.draw do
   # Routes to handle errors
 
   resources :errors
-
 
   # Routes for Google Oauth 2.0
 

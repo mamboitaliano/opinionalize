@@ -5,7 +5,8 @@
 
 $(document).ready(function() {
 
-  // AJAX call to remove a question from the DOM once delete button is hit
+// AJAX call to remove a question from the DOM once delete button is hit
+
   $('.delete-question-form').on('click', function(e) {
     e.preventDefault();
     console.log("DELETE ajax call being hit");
@@ -34,7 +35,8 @@ $(document).ready(function() {
 
 
 
-  // AJAX call to add a question to the DOM once 'add question' button is hit
+// AJAX call to add a question to the DOM once 'add question' button is hit
+
   $('#add_question').on("submit", function(e){
     e.preventDefault();
     console.log("SUBMIT!-----------------------------------------------")
@@ -64,8 +66,9 @@ $(document).ready(function() {
 
 
 
-  // AJAX call to make the 'new survey' dialogue fade out and subsequently have 'add question' dialogue
-  // fade in when the "create" button is clicked
+// AJAX call to make the 'new survey' dialogue fade out and subsequently have 'add question' dialogue
+// fade in when the "create" button is clicked
+
   $('#create_survey_btn').on("click", function(e) {
     e.preventDefault();
     console.log("CREATE SURVEY AJAX CALL WORKING----------------------");
@@ -96,8 +99,8 @@ $(document).ready(function() {
 
 
 
+// Allows the 'new-question-form' to fade in when the "Add Question" button is clicked
 
-  // Allows the 'new-question-form' to fade in when the "Add Question" button is clicked
   $(document).on('click', '#show-question-form', function(e) {
     e.preventDefault();
 
@@ -114,6 +117,7 @@ $(document).ready(function() {
 
 
 
+// AJAX call to add question to survey
 
   $(document).on('click', '#add-question-btn', function(e) {
     e.preventDefault();
@@ -158,6 +162,13 @@ $(document).ready(function() {
   });
 
 
+
+// AJAX call to specify question type
+$(document).on('click', '.set-resp-type-btn', function(e) {
+    e.preventDefault();
+    console.log("SET RESPONSE TYPE AJAX CALL WORKING----------------------");
+
+})
 
 
   // Pan background image

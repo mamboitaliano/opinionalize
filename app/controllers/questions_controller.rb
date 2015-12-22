@@ -19,9 +19,8 @@ class QuestionsController < ApplicationController
     p "Newly created question-- -- -- -- -- -- --"
     p @new_question
     if request.xhr?
-      p "QUESTION CREATED-----------------------------------------------------"
-      # render nothing: true, status: :ok #instead of rendering something, use js to display the questions as a list
-      render "_question_partial", layout: false, status: :ok #instead of rendering something, use js to display the questions as a list
+      p "--------------------------------->> QUESTION CREATED"
+      render "_question_partial", layout: false, status: :ok
     else
       p "ERROR SAVING QUESITON TO DATABASE"
       redirect_to "/surveys/#{@new_question.survey_id}/questions/#{@new_question.id}/edit"
@@ -32,6 +31,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    
   end
 
   def destroy

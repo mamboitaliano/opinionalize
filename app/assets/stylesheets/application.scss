@@ -27,15 +27,6 @@ body{
   z-index: -5;
 }
 
-#monkey{
-  position: relative;
-  background-image: url("/assets/jump_c.png");
-  height: 200px;
-  width: 200px;
-  left: 100px;
-  z-index: -4;
-}
-
 #monkey-wrapper{
   position: fixed;
   bottom: 20px;

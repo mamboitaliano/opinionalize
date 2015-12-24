@@ -5,6 +5,7 @@
   *=require_self
   *=require_tree .
   *=require rails_bootstrap_forms
+  *= require jquery-ui
 */
 
 .question-wrapper{
@@ -346,20 +347,20 @@ body{
   margin-left: 25%;
   margin-top: 0px;
   height: 100%;
-  }
+}
 
-  .required-dropdown {
-    display: block;
-    float: left;
-    margin-left: 20px;
-    height: 100%;
-  }
+.required-dropdown {
+  display: block;
+  float: left;
+  margin-left: 20px;
+  height: 100%;
+}
 
-  .required-dropdown-toggle {
-    height: 100%;
-  }
+.required-dropdown-toggle {
+  height: 100%;
+}
 
-  .required-dropdown ul {
-    position: relative;
-    float: right;
-  }
+.required-dropdown ul {
+  position: relative;
+  float: right;
+}

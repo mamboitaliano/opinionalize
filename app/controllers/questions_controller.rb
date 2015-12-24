@@ -4,9 +4,9 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    p "NEW QUESTION ROUTE IS BEING HIT | params = ----------------------------"
+    p "NEW QUESTION ROUTE IS BEING HIT | params = -----------------------------"
     p params
-    p "-----------------------------------------------------------------------"
+    p "------------------------------------------------------------------------"
     @current_survey = Survey.find(params[:survey_id])
     render "_new_question_partial", layout: false
   end
@@ -31,8 +31,8 @@ class QuestionsController < ApplicationController
     p "EDIT QUESTION ROUTE IS BEING HIT | params = ----------------------------"
     p params
     p "------------------------------------------------------------------------"
-    @current_question = Question.find(params[:question_id])
-    render "_edit_question_partial"
+    @current_question = Question.find(params[:id])
+    render "_edit_question_partial", layout: false
   end
 
   def update

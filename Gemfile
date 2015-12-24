@@ -15,3 +15,5 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'dotenv'
 
 gem 'bootstrap_form'
+
+gem 'jquery-ui-rails'

@@ -1,4 +1,5 @@
 // = require jquery 
+//= require jquery-ui
 //= require_tree .
 //= require bootstrap-sprockets
 //= require jquery.spritely.js
@@ -165,7 +166,9 @@ $(document).ready(function() {
       var link_value = $(this).attr('formaction');
       console.log(link_value);
 
-      
+      $('.modal').load(link_value);
+      $('.modal').dialog(); //jquery ui will open it as a modal popup
+
       debugger
       // TODO: write code to handle setting response type
   });

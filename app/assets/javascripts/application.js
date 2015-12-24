@@ -168,10 +168,10 @@ $(document).ready(function() {
 
       $('.modal').load(link_value);
       $('.modal').dialog(); //jquery ui will open it as a modal popup
-
-      debugger
-      // TODO: write code to handle setting response type
   });
+
+
+  
 
 
   // Pan background image

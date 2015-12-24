@@ -175,7 +175,7 @@ $(document).ready(function() {
 
 
   // Pan background image
-  $('body').pan({fps: 30, speed: 2, dir: 'left'});
+  // $('body').pan({fps: 30, speed: 2, dir: 'left'});
 
   // $(document).on('ajax:success', '.delete-question-form', function() {
   //   console.log("IS THIS WORKING YET?");

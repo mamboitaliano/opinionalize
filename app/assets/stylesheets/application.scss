@@ -390,7 +390,7 @@ body{
   width: 30%;
   position: relative;
   left: 15px;
-  top: 30px;
+  top: 100px;
 }
 
 .resp-type-container form {
@@ -399,7 +399,7 @@ body{
   width: 30%;
   position: relative;
   left: 15px;
-  top: 35px;
+  top: 120px;
 }
 
 .resp-type-container label {
@@ -409,4 +409,15 @@ body{
   font-family: 'Exo', sans-serif;
   font-size: 16px;
   color: white;
+}
+
+.resp-type-options {
+  border: 2px dashed rgb(153, 0, 153);
+  border-radius: 10px;
+  width: 50%;
+  height: 90%;
+  position: relative;
+  top: -180px;
+  float: right;
+  margin-right: 25px;
 }

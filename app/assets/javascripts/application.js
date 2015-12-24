@@ -156,14 +156,16 @@ $(document).ready(function() {
 
 
 
-// AJAX call to specify question type
+// AJAX call to specify response type
+
   $(document).on('click', '.set-resp-type-btn', function(e) {
       e.preventDefault();
       console.log("SET RESPONSE TYPE AJAX CALL WORKING----------------------");
       
-      var url = $(this).attr('formaction');
+      var link_value = $(this).attr('formaction');
+      console.log(link_value);
 
-      console.log(url);
+      
       debugger
       // TODO: write code to handle setting response type
   });

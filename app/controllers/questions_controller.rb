@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    p "NEW QUESTION ROUTE IS BEING HIT----------------------------------------"
+    p "NEW QUESTION ROUTE IS BEING HIT | params = ----------------------------"
     p params
     p "-----------------------------------------------------------------------"
     @current_survey = Survey.find(params[:survey_id])
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
     p "Newly created question-- -- -- -- -- -- --"
     p @new_question
     if request.xhr?
-      p "--------------------------------->> QUESTION CREATED"
+      p "-- -- -- -- -- -- -- >> QUESTION CREATED"
       render "_question_partial", layout: false, status: :ok
     else
       p "ERROR SAVING QUESITON TO DATABASE"
@@ -28,10 +28,14 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    p "EDIT QUESTION ROUTE IS BEING HIT | params = ----------------------------"
+    p params
+    p "------------------------------------------------------------------------"
+    @current_question = Question.find(params[:question_id])
+    render "_edit_question_partial"
   end
 
   def update
-    
   end
 
   def destroy

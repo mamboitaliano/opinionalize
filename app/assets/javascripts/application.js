@@ -157,7 +157,7 @@ $(document).ready(function() {
 
 
 
-// AJAX call to specify response type
+// AJAX call to open modal dialog box where user can specify response type
 
   $(document).on('click', '.set-resp-type-btn', function(e) {
       e.preventDefault();
@@ -167,15 +167,25 @@ $(document).ready(function() {
       console.log(link_value);
 
       $('.modal').load(link_value);
-      $('.modal').dialog(); //jquery ui will open it as a modal popup
+      $('.modal').dialog();
   });
 
+$("input[radio]:radio").change(function() {
+  if ($('r1').attr("checked")) {
+    // do something
+  }
+  else if ($('r2').attr("checked")) {
+    // do something
+  }
+  else {
+    // do something
+  }
+});
 
-  
 
 
   // Pan background image
-  // $('body').pan({fps: 30, speed: 2, dir: 'left'});
+  $('body').pan({fps: 30, speed: 2, dir: 'left'});
 
   // $(document).on('ajax:success', '.delete-question-form', function() {
   //   console.log("IS THIS WORKING YET?");

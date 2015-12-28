@@ -170,20 +170,22 @@ $(document).ready(function() {
       $('.modal').dialog();
   });
 
-$("input[radio]:radio").change(function() {
-  if ($('r1').attr("checked")) {
-    // do something
-  }
-  else if ($('r2').attr("checked")) {
-    // do something
-  }
-  else {
-    // do something
-  }
+$('input:radio').change(function() {
+  alert("changed");
+  // console.log("radio button functions activated");
+  // if ($('#r1').attr("checked")) {
+  //   alert("r1 checked");
+  // }
+  // else if ($('#r2').attr("checked")) {
+  //   alert("r2 checked");
+  // }
+  // else {
+  //   alert("r3 checked");
+  // }
 });
 
 
-
+  
   // Pan background image
   $('body').pan({fps: 30, speed: 2, dir: 'left'});
 

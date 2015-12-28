@@ -170,26 +170,29 @@ $(document).ready(function() {
       $('.modal').dialog();
   });
 
+
+ // Function to control radio button actions to display response type options 
+
   $(document).on('change', 'input:radio', function() {
 
     if (this.value == "textinput") {
-      alert("value is r1")
+      alert("value is r1");
+      $('.optradio-r2, .optradio-r3').hide(function() {
+        $('.optradio-r1').show();
+      });
     }
     else if (this.value == "multichoice") {
-      alert("value is r2")
+      alert("value is r2");
+      $('.optradio-r1, .optradio-r3').hide(function() {
+        $('.optradio-r2').show();
+      });
     }
     else {
-      alert("value is r3")
+      alert("value is r3");
+      $('.optradio-r1, .optradio-r2').hide(function() {
+        $('.optradio-r3').show();
+      });
     }
-    // if ($('#r1').attr("checked")) {
-    //   alert("r1 checked");
-    // }
-    // else if ($('#r2').attr("checked")) {
-    //   alert("r2 checked");
-    // }
-    // else {
-    //   alert("r3 checked");
-    // }
   });
 
 

@@ -427,11 +427,28 @@ body{
   position: absolute;
   top: 0px;
   width: 100%;
+  height: 100%;
 }
 
 .optradio-form p {
   border: 2px solid orange;
+  width: 50%;
   position: relative;
   top: 0px;
+  float: right;
+  margin-right: 30px;
 }
+
+.optradio-form button {
+  border: 2px dashed magenta;
+  position: absolute;
+  left: 20px;
+}
+
+.answr-choice {
+  width: 450px;
+  position: relative;
+  margin-right: 0px;
+}
+
 

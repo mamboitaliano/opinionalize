@@ -15,23 +15,40 @@
 					<div class="radio">
 						<label><input type="radio" name="optradio" id="r3" value="chkboxes">checkboxes</label>
 					</div>
+			<!-- 		<div class="radio">
+						<label><input type="radio" name="optradio" id="r4" value="boolean">true or false</label>
+					</div> -->
 			    </fieldset>
 		    </form>
 		</div>
 
 		<div class="resp-options">
+
 			<div class="optradio-form" id="optradio-r1" hidden>
-				<p>some form for text input</p>
+				<p align="right">text input</p>
 			</div>
 
 			<div class="optradio-form" id="optradio-r2" hidden>
-				<p>some form for multiple choice</p> 
+				<p align="right">multiple choice</p> 
+				<form id="mult-choice-possibilities" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="POST"> 
+					<input class="answr-choice" type="text" name="text" placeholder="write an answer choice">
+					<input class="answr-choice" type="text" name="text" placeholder="another answer choice">
+					<input class="submit-answr-choices" type="submit" value="submit">
+				</form>
+				<button class="btn btn-primary" type="button">add</button>
 			</div>
 
 			<div class="optradio-form" id="optradio-r3" hidden>
-				<p>some form for checkboxes</p>
+				<p align="right">multiple answers</p>
+				<form id="mult-answer-possibilities" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="POST"> 
+					<input class="answr-choice" type="text" name="text" placeholder="write an answer choice">
+					<input class="answr-choice" type="text" name="text" placeholder="another answer choice">
+					<input class="submit-answr-choices" type="submit" value="submit">
+				</form>
+				<button class="btn btn-primary" type="button">add</button>
 			</div>
 
 		</div>
+
 	</div>
 </div>

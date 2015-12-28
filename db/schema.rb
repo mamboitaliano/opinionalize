@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150716102147) do
   create_table "questions", force: true do |t|
     t.string   "text"
     t.string   "explanation"
+    t.integer  "resp_type"
+    t.string   "resp_choices"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "survey_id"

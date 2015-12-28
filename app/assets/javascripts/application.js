@@ -170,19 +170,27 @@ $(document).ready(function() {
       $('.modal').dialog();
   });
 
-$('input:radio').change(function() {
-  alert("changed");
-  // console.log("radio button functions activated");
-  // if ($('#r1').attr("checked")) {
-  //   alert("r1 checked");
-  // }
-  // else if ($('#r2').attr("checked")) {
-  //   alert("r2 checked");
-  // }
-  // else {
-  //   alert("r3 checked");
-  // }
-});
+  $(document).on('change', 'input:radio', function() {
+
+    if (this.value == "textinput") {
+      alert("value is r1")
+    }
+    else if (this.value == "multichoice") {
+      alert("value is r2")
+    }
+    else {
+      alert("value is r3")
+    }
+    // if ($('#r1').attr("checked")) {
+    //   alert("r1 checked");
+    // }
+    // else if ($('#r2').attr("checked")) {
+    //   alert("r2 checked");
+    // }
+    // else {
+    //   alert("r3 checked");
+    // }
+  });
 
 
   

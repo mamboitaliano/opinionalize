@@ -1,5 +1,11 @@
 <div id="dialog-form" title="Create new user">
 
+	<script type="text/javascript">
+	$('input:radio').change(function() {
+		alert("changed");
+	});
+	</script>
+
   	<div class="resp-type-container">
 
   		<p>set the response type:</p>
@@ -8,15 +14,15 @@
   			<form>
 			    <fieldset>
 				    <div class="radio">
-				    	<label><input type="radio" name="optradio" id="r1">text input</label>
+				    	<label><input type="radio" name="optradio" id="r1" value="textinput">text input</label>
 					</div>
 
 					<div class="radio">
-					  <label><input type="radio" name="optradio" id="r2">multiple choice</label>
+						<label><input type="radio" name="optradio" id="r2" value="multichoice">multiple choice</label>
 					</div>
 
 					<div class="radio">
-					  <label><input type="radio" name="optradio" id="r3">checkboxes</label>
+						<label><input type="radio" name="optradio" id="r3" value="chkboxes">checkboxes</label>
 					</div>
 			    </fieldset>
 		    </form>

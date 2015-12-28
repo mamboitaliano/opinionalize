@@ -176,21 +176,18 @@ $(document).ready(function() {
   $(document).on('change', 'input:radio', function() {
 
     if (this.value == "textinput") {
-      alert("value is r1");
-      $('.optradio-r2, .optradio-r3').hide(function() {
-        $('.optradio-r1').show();
+      $('#optradio-r2, #optradio-r3').hide(function() {
+        $('#optradio-r1').show();
       });
     }
     else if (this.value == "multichoice") {
-      alert("value is r2");
-      $('.optradio-r1, .optradio-r3').hide(function() {
-        $('.optradio-r2').show();
+      $('#optradio-r1, #optradio-r3').hide(function() {
+        $('#optradio-r2').show();
       });
     }
     else {
-      alert("value is r3");
-      $('.optradio-r1, .optradio-r2').hide(function() {
-        $('.optradio-r3').show();
+      $('#optradio-r1, #optradio-r2').hide(function() {
+        $('#optradio-r3').show();
       });
     }
   });

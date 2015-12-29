@@ -192,8 +192,18 @@ $(document).ready(function() {
     }
   });
 
+
+ // Function to add an answer choice to a multiple answer question
+
+  var answer_choice_count = 0;
   $(document).on('click', "#ma-add-choice", function() {
     alert("button working");
+    console.log("value of count is " + answer_choice_count);
+    var content = "<tr><td class='numerator' id='n" + answer_choice_count + "'>b</td><td><input class='answer-choice' type='text' name='text' placeholder='write an answer choice'></td></tr>";
+    console.log(content);
+    $("#actbl2").append(content);
+    answer_choice_count++;
+    console.log("value of answer_choice_count after increment is " + answer_choice_count);
   });
 
 

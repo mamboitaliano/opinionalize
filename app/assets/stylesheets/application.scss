@@ -440,12 +440,37 @@ body{
   border: 2px dashed magenta;
   position: absolute;
   left: 20px;
+  top: 45px;
 }
 
-.answr-choice {
-  width: 450px;
+.answer-choice {
+  width: 96%;
+  float: right;
+}
+
+.submit-answer-choices {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.answer-choice-tbl {
+  border: 2px dashed #99ccff;
+  width: 90%;
   position: relative;
-  margin-right: 0px;
+  top: 50px;
+  left: 20px;
 }
 
+.answer-choice-tbl td {
+  border: 2px dashed yellow;
+  padding-top: 7px;
+}
+
+.numerator {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+}
 

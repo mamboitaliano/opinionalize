@@ -27,22 +27,38 @@
 
 			<div class="optradio-form" id="optradio-r2" hidden>
 				<p align="right">multiple choice</p> 
+				<button class="btn btn-primary" id="mc-add-choice" type="button">add</button>
 				<form id="mult-choice-possibilities" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="POST"> 
-					<input class="answr-choice" type="text" name="text" placeholder="write an answer choice">
-					<input class="answr-choice" type="text" name="text" placeholder="another answer choice">
-					<input class="submit-answr-choices" type="submit" value="submit">
+					<table class="answer-choice-tbl">
+						<tr>
+							<td class="numerator" id="l1">a</td>
+							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
+						</tr>
+						<tr>
+							<td class="numerator" id="l2">b</td>
+							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
+						</tr>
+					</table>
 				</form>
-				<button class="btn btn-primary" type="button">add</button>
+				<input class="submit-answer-choices" type="submit" value="save">
 			</div>
 
 			<div class="optradio-form" id="optradio-r3" hidden>
 				<p align="right">multiple answers</p>
+				<button class="btn btn-primary" id="ma-add-choice" type="button">add</button>
 				<form id="mult-answer-possibilities" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="POST"> 
-					<input class="answr-choice" type="text" name="text" placeholder="write an answer choice">
-					<input class="answr-choice" type="text" name="text" placeholder="another answer choice">
-					<input class="submit-answr-choices" type="submit" value="submit">
+					<table class="answer-choice-tbl">
+						<tr>
+							<td class="numerator" id="n1">a</td>
+							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
+						</tr>
+						<tr>
+							<td class="numerator" id="n2">b</td>
+							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
+						</tr>
+					</table>
 				</form>
-				<button class="btn btn-primary" type="button">add</button>
+				<input class="submit-answer-choices" type="submit" value="save">
 			</div>
 
 		</div>

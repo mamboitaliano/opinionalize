@@ -193,23 +193,47 @@ $(document).ready(function() {
   });
 
 
- // Function to add an answer choice to a multiple answer question
+ // Functions to add an answer choice to a multiple choice and multiple answer question
+ // These functions also include logic to auto-letter each answer choice (e.g. a, b, c...)
 
-  var answer_choice_count = 0;
-  $(document).on('click', "#ma-add-choice", function() {
-    alert("button working");
-    console.log("value of count is " + answer_choice_count);
-    var content = "<tr><td class='numerator' id='n" + answer_choice_count + "'>b</td><td><input class='answer-choice' type='text' name='text' placeholder='write an answer choice'></td></tr>";
-    console.log(content);
-    $("#actbl2").append(content);
-    answer_choice_count++;
-    console.log("value of answer_choice_count after increment is " + answer_choice_count);
+  function nextChar(c) {
+    return String.fromCharCode(c.charCodeAt(0) + 1);
+  }
+  nextChar('a');
+
+  var mc_choice_count = 3;
+  $(document).on('click', "#mc-add-choice", function() {
+    // alert("button working");
+    // console.log("value of count is " + answer_choice_count);
+    var prev_td = "#l" + (mc_choice_count - 1);
+    var prev_letter = $(prev_td).text();
+    var current_letter = nextChar(prev_letter);
+    var content = "<tr><td class='numerator' id='l" + mc_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' type='text' name='text' placeholder='write an answer choice'></td></tr>";
+    $("#actbl1").append(content);
+    mc_choice_count++;
+    // console.log("value of answer_choice_count after increment is " + answer_choice_count);
   });
 
-
+  var ma_choice_count = 3;
+  $(document).on('click', "#ma-add-choice", function() {
+    // alert("button working");
+    // console.log("value of count is " + answer_choice_count);
+    var prev_td = "#n" + (ma_choice_count - 1);
+    var prev_letter = $(prev_td).text();
+    var current_letter = nextChar(prev_letter);
+    var content = "<tr><td class='numerator' id='n" + ma_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' type='text' name='text' placeholder='write an answer choice'></td></tr>";
+    $("#actbl2").append(content);
+    ma_choice_count++;
+    // console.log("value of answer_choice_count after increment is " + answer_choice_count);
+  });
   
-  // Pan background image
-  // $('body').pan({fps: 30, speed: 2, dir: 'left'});
+
+  // Function to pan the background image
+  
+  $('body').pan({fps: 30, speed: 2, dir: 'left'});
+
+
+  // Useless stuff vv
 
   // $(document).on('ajax:success', '.delete-question-form', function() {
   //   console.log("IS THIS WORKING YET?");

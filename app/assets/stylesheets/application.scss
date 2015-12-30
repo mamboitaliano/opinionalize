@@ -191,7 +191,6 @@ body{
 }
 
 .survey-ispublic-form {
-  border: 1px solid green;
   position: relative;
   top: 0px;
   height: 50px;
@@ -232,14 +231,14 @@ body{
 }
 
 .edit_survey_partial {
+  border: 3px solid white;
+  border-radius: 25px;
+  background-color: rgba(240, 240, 240, 0.5);
   position: absolute;
   left: 7%;
   top: 100px;
   width: 86%;
   height: 560px;
-  border: 3px solid white;
-  background-color: rgba(240, 240, 240, 0.5);
-  border-radius: 25px;
 }
 
 .edit_survey_partial h3 {
@@ -271,7 +270,6 @@ body{
 }
 
 .add-question-prompt-container {
-  border: 3px solid red;
   height: 85%;
   width: 100%;
   position: absolute;
@@ -279,7 +277,6 @@ body{
 }
 
 .display-question-form-button {
-  border: 3px solid blue;
   width: 150px;
   position: relative;
   left: 100px;
@@ -287,7 +284,6 @@ body{
 }
 
 .new-question-form {
-  border: 2px solid purple;
   position: absolute;
   top: 85px;
   left: 5%;
@@ -295,7 +291,6 @@ body{
 }
 
 .add-question-prompt {
-  border: 3px solid yellow;
   width: 500px;
   position: relative;
   left: 400px;
@@ -317,19 +312,16 @@ body{
 }
 
 .content {
-  border: 2px solid yellow;
   height: 80%;
 }
 
 .question-div {
-  border: 2px solid pink;
   height: 40px;
   width: 100%;
   margin-bottom: 20px;
 }
 
 .question-text {
-  border: 1px dashed purple;
   width: 50%;
   height: 100%;
   text-align: center;
@@ -366,7 +358,6 @@ body{
 }
 
 .modal {
-  border: 4px solid red;
   background: rgba(0, 38, 77, 0.5);
 }
 
@@ -409,7 +400,6 @@ body{
 }
 
 .resp-options {
-  border: 2px dashed rgb(153, 0, 153);
   border-radius: 10px;
   width: 60%;
   height: 97%;
@@ -420,7 +410,6 @@ body{
 }
 
 .optradio-form {
-  border: 2px dashed white;
   position: absolute;
   top: 0px;
   width: 100%;
@@ -428,7 +417,6 @@ body{
 }
 
 .optradio-form p {
-  border: 2px solid orange;
   width: 50%;
   position: relative;
   top: 0px;
@@ -437,7 +425,6 @@ body{
 }
 
 .optradio-form button {
-  border: 2px dashed magenta;
   position: absolute;
   left: 20px;
   top: 45px;
@@ -455,7 +442,6 @@ body{
 }
 
 .answer-choice-tbl {
-  border: 2px dashed #99ccff;
   width: 90%;
   position: relative;
   top: 50px;
@@ -463,7 +449,6 @@ body{
 }
 
 .answer-choice-tbl td {
-  border: 2px dashed yellow;
   padding-top: 7px;
 }
 
@@ -472,5 +457,25 @@ body{
   font-size: 18px;
   font-weight: bold;
   text-align: right;
+}
+
+#dummy-txtbox-form {
+  border: 2px dashed white;
+}
+
+#dummy-txtbox-form table {
+  border: 2px dotted yellow;
+}
+
+.dummy-txtbox-tbl tr {
+  border: 2px dashed #ff3399;
+}
+
+.dummy-txtbox-tbl td {
+  color: white;
+  font-family: 'Exo', sans-serif;
+  border: 2px dotted lime;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 

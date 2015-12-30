@@ -173,7 +173,7 @@ $(document).ready(function() {
 
  // Function to control radio button actions to display response type options 
 
-  $(document).on('change', 'input:radio', function() {
+  $(document).on('change', '.optradio', function() {
 
     if (this.value == "textinput") {
       $('#optradio-r2, #optradio-r3').hide(function() {
@@ -193,13 +193,13 @@ $(document).ready(function() {
   });
 
 
+
  // Functions to add an answer choice to a multiple choice and multiple answer question
  // These functions also include logic to auto-letter each answer choice (e.g. a, b, c...)
 
   function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
   }
-  nextChar('a');
 
   var mc_choice_count = 3;
   $(document).on('click', "#mc-add-choice", function() {

@@ -1,4 +1,4 @@
-// = require jquery 
+//= require jquery 
 //= require jquery-ui
 //= require_tree .
 //= require bootstrap-sprockets
@@ -120,7 +120,7 @@ $(document).ready(function() {
 
 // AJAX call to add question to survey
 
-  $(document).on('click', '#add-question-btn', function(e) {
+  $(document).on("click", "#add-question-btn", function(e) {
     e.preventDefault();
     console.log("ADD QUESTION AJAX CALL WORKING----------------------");
     
@@ -159,7 +159,7 @@ $(document).ready(function() {
 
 // AJAX call to open modal dialog box where user can specify response type
 
-  $(document).on('click', '.set-resp-type-btn', function(e) {
+  $(document).on("click", ".set-resp-type-btn", function(e) {
       e.preventDefault();
       console.log("SET RESPONSE TYPE AJAX CALL WORKING----------------------");
       
@@ -173,7 +173,7 @@ $(document).ready(function() {
 
  // Function to control radio button actions to display response type options 
 
-  $(document).on('change', '.optradio', function() {
+  $(document).on("change", ".optradio", function() {
 
     if (this.value == "textinput") {
       $('#optradio-r2, #optradio-r3').hide(function() {
@@ -227,6 +227,15 @@ $(document).ready(function() {
     // console.log("value of answer_choice_count after increment is " + answer_choice_count);
   });
   
+
+  $(document).on("change", ".txtinput-resp", function () {
+    if (this.name = "txtinput-resp-short") {
+      alert("this is working");
+    }
+    else {
+      alert("this is working too");
+    }
+  });
 
   // Function to pan the background image
   

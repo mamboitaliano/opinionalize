@@ -36,14 +36,10 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    p "UPDATE QUESTION ROUTE HIT | params = -----------------------------------"
-    p params
-    p "------------------------------------------------------------------------"
-
+    p "UPDATE QUESTION ROUTE HIT ----------------------------------------------"
     @current_question = Question.find(params[:id])
-    p "current questions is #{@current_question.id}"
-    p "the response type is #{params[:resp_type]}"
-    
+    # TODO: wite logic to write reponse type to database
+    # maybe export this out to a helper method to improve legibility?
     response_type = params[:resp_type]
     case response_type
     when "textinput"
@@ -55,10 +51,16 @@ class QuestionsController < ApplicationController
     else
       p "invalid parameter value"   # be sure to use this else clause to prevent injection
     end
-        
-    p @current_question
-    @current_question.save
     # TODO: write logic to write possible answers to database
+    temp_array = []
+    params.each do |k, v|
+      if (k.include? "answerchoice") && (v != "")
+        temp_array << v
+      end
+    end
+
+    @current_question.resp_choices = temp_array.join(",")
+    @current_question.save
 
     if request.xhr?
       p "-- -- -- -- -- -- -- >> request is xhr"

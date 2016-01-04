@@ -36,6 +36,9 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    p "UPDATE QUESTION ROUTE HIT | params = -----------------------------------"
+    p params
+    p "------------------------------------------------------------------------"
   end
 
   def destroy

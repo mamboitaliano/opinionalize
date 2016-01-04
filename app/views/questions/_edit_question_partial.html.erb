@@ -1,84 +1,84 @@
 <div id="dialog-form" title="Create new user">
+  	
   	<div class="resp-type-container">
   		<p>set the response type:</p>
-  		<div class="resp-type-selector">
-  			<form>
-			    <fieldset>
+  		
+  		<form id="resp-type-submit-form" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="PUT">
+	  		
+	  		<div class="resp-type-selector">
+			    <fieldset id="answer-type">
 				    <div class="radio">
 				    	<label><input type="radio" class="optradio" name="optradio" id="r1" value="textinput">text input</label>
 					</div>
-
 					<div class="radio">
 						<label><input type="radio" class="optradio" name="optradio" id="r2" value="multichoice">multiple choice</label>
 					</div>
-
 					<div class="radio">
 						<label><input type="radio" class="optradio" name="optradio" id="r3" value="chkboxes">checkboxes</label>
 					</div>
 			    </fieldset>
-		    </form>
-		</div>
-
-		<div class="resp-options">
-
-			<div class="optradio-form" id="optradio-r1" hidden>
-				<p align="right">text input</p>
-				<form id="dummy-txtbox-form">
-					<table class="dummy-txtbox-tbl">
-						<tr>
-							<td><div class="radio"><label><input type="radio" name="txtinput-resp-short" class="txtinput-resp" id="txtinput-resp-short">short answer text field</label></div></td>
-						</tr>
-						<tr>
-							<td><input type="text" name="dummy-txtfield" placeholder="short and sweet"></td>
-						</tr>
-						<tr>
-							<td><div class="radio"><label><input type="radio" name="txtinput-resp-long" class="txtinput-resp" id="txtinput-resp-long">paragraph answer text box</label></div></td>
-						</tr>
-						<tr>
-							<td><textarea name="dummy-txtarea" form="dummy-txtbox-form" cols="60" rows="8" placeholder="the more the merrier" readonly></textarea></td>
-						</tr>
-					</table>
-				</form>
-				<input class="btn btn-primary submit-answer-choices" type="submit" value="save">
 			</div>
 
-			<div class="optradio-form" id="optradio-r2" hidden>
-				<p align="right">multiple choice</p> 
-				<button class="btn btn-primary" id="mc-add-choice" type="button">add</button>
-				<form id="mult-choice-possibilities" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="POST"> 
-					<table class="answer-choice-tbl" id="actbl1">
-						<tr>
-							<td class="numerator" id="l1">a</td>
-							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
-						</tr>
-						<tr>
-							<td class="numerator" id="l2">b</td>
-							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
-						</tr>
-					</table>
-				</form>
-				<input class="btn btn-primary submit-answer-choices" type="submit" value="save">
+
+
+			<div class="resp-options">
+
+				<div class="optradio-form" id="optradio-r1" hidden>
+					<p align="right">text input</p>
+					<fieldset id="dummy-txtbox-form">
+						<table class="dummy-txtbox-tbl">
+							<tr>
+								<td><div class="radio"><label><input type="radio" name="txtinput-resp-type" class="txtinput-resp" id="txtinput-resp-short">short answer text field</label></div></td>
+							</tr>
+							<tr>
+								<td><input type="text" name="dummy-txtfield" placeholder="short and sweet"></td>
+							</tr>
+							<tr>
+								<td><div class="radio"><label><input type="radio" name="txtinput-resp-type" class="txtinput-resp" id="txtinput-resp-long">paragraph answer text box</label></div></td>
+							</tr>
+							<tr>
+								<td><textarea name="dummy-txtarea" form="dummy-txtbox-form" cols="60" rows="8" placeholder="the more the merrier" readonly></textarea></td>
+							</tr>
+						</table>
+					</fieldset>
+				</div>
+
+				<div class="optradio-form" id="optradio-r2" hidden>
+					<p align="right">multiple choice</p> 
+					<button class="btn btn-primary" id="mc-add-choice" type="button">add</button>
+					<fieldset id="multi-choice-field">
+						<table class="answer-choice-tbl" id="actbl1">
+							<tr>
+								<td class="numerator" id="l1">a</td>
+								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+							</tr>
+							<tr>
+								<td class="numerator" id="l2">b</td>
+								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+							</tr>
+						</table>
+					</fieldset>
+				</div>
+
+				<div class="optradio-form" id="optradio-r3" hidden>
+					<p align="right">multiple answers</p>
+					<button class="btn btn-primary" id="ma-add-choice" type="button">add</button>
+					<fieldset id="mult-answer-field">
+						<table class="answer-choice-tbl" id="actbl2">
+							<tr>
+								<td class="numerator" id="n1">a</td>
+								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+							</tr>
+							<tr>
+								<td class="numerator" id="n2">b</td>
+								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+							</tr>
+						</table>
+					</fieldset>
+				</div>
 			</div>
 
-			<div class="optradio-form" id="optradio-r3" hidden>
-				<p align="right">multiple answers</p>
-				<button class="btn btn-primary" id="ma-add-choice" type="button">add</button>
-				<form id="mult-answer-possibilities" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="POST"> 
-					<table class="answer-choice-tbl" id="actbl2">
-						<tr>
-							<td class="numerator" id="n1">a</td>
-							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
-						</tr>
-						<tr>
-							<td class="numerator" id="n2">b</td>
-							<td><input class="answer-choice" type="text" name="text" placeholder="write an answer choice"></td>
-						</tr>
-					</table>
-				</form>
-				<input class="btn btn-primary submit-answer-choices" type="submit" value="save">
-			</div>
-
-		</div>
-
+			<input class="btn btn-primary submit-answer-choices" type="submit" value="save">
+		</form>
 	</div>
 </div>

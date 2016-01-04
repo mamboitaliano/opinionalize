@@ -148,7 +148,7 @@ $(document).on('click', "#mc-add-choice", function() {
 	var prev_td = "#l" + (mc_choice_count - 1);
 	var prev_letter = $(prev_td).text();
 	var current_letter = nextChar(prev_letter);
-	var content = "<tr><td class='numerator' id='l" + mc_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' type='text' name='text' placeholder='write an answer choice'></td></tr>";
+	var content = "<tr><td class='numerator' id='l" + mc_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='answer-choice' placeholder='write an answer choice'></td></tr>";
 	$("#actbl1").append(content);
 	mc_choice_count++;
 });
@@ -158,7 +158,7 @@ $(document).on('click', "#ma-add-choice", function() {
 	var prev_td = "#n" + (ma_choice_count - 1);
 	var prev_letter = $(prev_td).text();
 	var current_letter = nextChar(prev_letter);
-	var content = "<tr><td class='numerator' id='n" + ma_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' type='text' name='text' placeholder='write an answer choice'></td></tr>";
+	var content = "<tr><td class='numerator' id='n" + ma_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='answer-choice' placeholder='write an answer choice'></td></tr>";
 	$("#actbl2").append(content);
 	ma_choice_count++;
 });
@@ -169,9 +169,16 @@ $(document).on("change", ".txtinput-resp", function () {
 	if (this.name = "txtinput-resp-short") {
 		alert("this is working");
 		// TODO: set the response input type (in the db) to text
+
 	}
 	else {
 		alert("this is working too");
 		// TODO: set the response input type (in the db) to textarea
 	}
 });
+
+$("resp-type-submit-form").on("submit", function(e) {
+	e.preventDefault();
+	debugger
+
+})

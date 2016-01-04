@@ -48,9 +48,9 @@ Rails.application.routes.draw do
 
   get 'surveys/:survey_id/questions/:id/edit' => 'questions#edit'
 
-  put 'survey/:survey_id/questions/:id' => 'questions#update'
+  put 'surveys/:survey_id/questions/:id' => 'questions#update'
 
-  delete 'survey/:survey_id/questions/:id' => 'questions#delete'
+  delete 'surveys/:survey_id/questions/:id' => 'questions#delete'
 
 
   # auth

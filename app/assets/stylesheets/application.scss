@@ -383,7 +383,7 @@ body{
   top: 100px;
 }
 
-.resp-type-selector form {
+.resp-type-selector fieldset {
   border-radius: 15px;
   width: 30%;
   position: relative;
@@ -407,6 +407,12 @@ body{
   top: -182px;
   float: right;
   margin-right: 15px;
+}
+
+.resp-options fieldset {
+  border: 2px dashed yellow;
+  width: 100%;
+  height: 100%;
 }
 
 .optradio-form {
@@ -459,10 +465,6 @@ body{
   text-align: right;
 }
 
-#dummy-txtbox-form {
-  border: 2px dashed white;
-}
-
 #dummy-txtbox-form table {
   border: 2px dotted yellow;
 }
@@ -489,3 +491,11 @@ body{
   width: 100%;
 }
 
+#resp-type-submit-form {
+  border: 2px solid lime;
+  width: 100%;
+  height: 90%;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}

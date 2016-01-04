@@ -166,7 +166,7 @@ $(document).on('click', "#ma-add-choice", function() {
 
 // Function to control radio buttons that allow user to choose between a short and a long text input response
 $(document).on("change", ".txtinput-resp", function () {
-	if (this.name = "txtinput-resp-short") {
+	if (this.name = "txt-answerchoice") {
 		alert("this is working");
 		// TODO: set the response input type (in the db) to text
 

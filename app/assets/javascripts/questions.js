@@ -148,7 +148,7 @@ $(document).on('click', "#mc-add-choice", function() {
 	var prev_td = "#l" + (mc_choice_count - 1);
 	var prev_letter = $(prev_td).text();
 	var current_letter = nextChar(prev_letter);
-	var content = "<tr><td class='numerator' id='l" + mc_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='answer-choice' placeholder='write an answer choice'></td></tr>";
+	var content = "<tr><td class='numerator' id='l" + mc_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='mc-answerchoice" + mc_choice_count + "' placeholder='write an answer choice'></td></tr>";
 	$("#actbl1").append(content);
 	mc_choice_count++;
 });
@@ -158,7 +158,7 @@ $(document).on('click', "#ma-add-choice", function() {
 	var prev_td = "#n" + (ma_choice_count - 1);
 	var prev_letter = $(prev_td).text();
 	var current_letter = nextChar(prev_letter);
-	var content = "<tr><td class='numerator' id='n" + ma_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='answer-choice' placeholder='write an answer choice'></td></tr>";
+	var content = "<tr><td class='numerator' id='n" + ma_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='ma-answerchoice" + ma_choice_count + "' placeholder='write an answer choice'></td></tr>";
 	$("#actbl2").append(content);
 	ma_choice_count++;
 });
@@ -177,8 +177,29 @@ $(document).on("change", ".txtinput-resp", function () {
 	}
 });
 
-$("resp-type-submit-form").on("submit", function(e) {
-	e.preventDefault();
-	debugger
 
-})
+
+$(document).on("submit", "#resp-type-submit-form", function(e) {
+	e.preventDefault();
+	console.log("update response type AJAX CALL WORKING----------------------");
+
+	var url = $(this).attr('action');
+	var type = "PUT";
+	var data = $(this).serialize();
+
+	console.log(data);
+	debugger
+	
+	var request = $.ajax({
+		url: url,
+		type: type,
+		data: data
+	});
+
+	request.done(function(serverData) {
+		console.log("what what");
+	});
+	request.fail(function(serverData) {
+		console.log("error writing response type and options to databse");
+	});
+});

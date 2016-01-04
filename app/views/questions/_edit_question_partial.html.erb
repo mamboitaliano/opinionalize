@@ -3,7 +3,7 @@
   	<div class="resp-type-container">
   		<p>set the response type:</p>
   		
-  		<form id="resp-type-submit-form" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="PUT">
+  		<form id="resp-type-submit-form" action="/surveys/<%= @current_question.survey_id %>/questions/<%= @current_question.id %>" method="POST">
 	  		
 	  		<div class="resp-type-selector">
 			    <fieldset id="answer-type">
@@ -50,11 +50,11 @@
 						<table class="answer-choice-tbl" id="actbl1">
 							<tr>
 								<td class="numerator" id="l1">a</td>
-								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+								<td><input class="answer-choice" type="text" name="mc-answerchoice1" placeholder="write an answer choice"></td>
 							</tr>
 							<tr>
 								<td class="numerator" id="l2">b</td>
-								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+								<td><input class="answer-choice" type="text" name="mc-answerchoice2" placeholder="write an answer choice"></td>
 							</tr>
 						</table>
 					</fieldset>
@@ -67,11 +67,11 @@
 						<table class="answer-choice-tbl" id="actbl2">
 							<tr>
 								<td class="numerator" id="n1">a</td>
-								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+								<td><input class="answer-choice" type="text" name="ma-answerchoice1" placeholder="write an answer choice"></td>
 							</tr>
 							<tr>
 								<td class="numerator" id="n2">b</td>
-								<td><input class="answer-choice" type="text" name="answer-choice" placeholder="write an answer choice"></td>
+								<td><input class="answer-choice" type="text" name="ma-answerchoice2" placeholder="write an answer choice"></td>
 							</tr>
 						</table>
 					</fieldset>

@@ -39,6 +39,32 @@ class QuestionsController < ApplicationController
     p "UPDATE QUESTION ROUTE HIT | params = -----------------------------------"
     p params
     p "------------------------------------------------------------------------"
+
+    @current_question = Question.find(params[:id])
+    p "current questions is #{@current_question.id}"
+    p "the response type is #{params[:resp_type]}"
+    
+    response_type = params[:resp_type]
+    case response_type
+    when "textinput"
+      @current_question.resp_type = 0
+    when "multichoice"
+      @current_question.resp_type = 1
+    when "chkboxes"
+      @current_question.resp_type = 2
+    else
+      p "invalid parameter value"   # be sure to use this else clause to prevent injection
+    end
+        
+    p @current_question
+    @current_question.save
+    # TODO: write logic to write possible answers to database
+
+    if request.xhr?
+      p "-- -- -- -- -- -- -- >> request is xhr"
+    else
+      p "-- -- -- -- -- -- -- >> request is not xhr"
+    end
   end
 
   def destroy

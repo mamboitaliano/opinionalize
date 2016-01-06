@@ -36,7 +36,7 @@ $(document).ready(function() {
 
   // Function to pan the background image
   
-  $('body').pan({fps: 30, speed: 2, dir: 'left'});
+  // $('body').pan({fps: 30, speed: 2, dir: 'left'});
 
 
   // Useless stuff vv

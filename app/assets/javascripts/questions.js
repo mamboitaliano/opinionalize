@@ -72,7 +72,7 @@ $('#add_question').on("submit", function(e){
 
 
 // AJAX call to add question to survey
-$(document).on("click", "#add-question-btn", function(e) {
+$(document).on("click", ".add-question-btn", function(e) {
 	e.preventDefault();
 	console.log("ADD QUESTION AJAX CALL WORKING----------------------");
 
@@ -209,8 +209,18 @@ $(document).on("submit", "#resp-type-submit-form", function(e) {
 
 	request.done(function(serverData) {
 		console.log("what what");
+		// TODO: record successful UPDATE operation in log, remove modal dialog box from DOM
+		$("#resp-type-form-box").remove();
+		$(".modal").dialog("close");
 	});
 	request.fail(function(serverData) {
 		console.log("error writing response type and options to databse");
+		// TODO: record UPDATE failure in log
 	});
 });
+
+$(document).on("click", ".cancel-button", function(e) {
+	e.preventDefault();
+	$("#resp-type-form-box").remove();
+	$(".modal").dialog("close");
+})

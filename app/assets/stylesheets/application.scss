@@ -257,16 +257,11 @@ body{
   background-color: rgba(240, 240, 240, 0.5) 
 }
 
-#add-question-btn {
-  position: relative;
-  width: 110px;
+.add-question-btn {
+  width: 19%;
   height: 30px;
-  left: 18%;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.5);
-  color: rgb(92, 107, 168);
-  font-family: 'Exo', sans-serif;
-  font-size: 14px;
+  float: right;
+  margin-right: 5px;
 }
 
 .add-question-prompt-container {
@@ -286,8 +281,11 @@ body{
 .new-question-form {
   position: absolute;
   top: 85px;
-  left: 5%;
-  width: 90%;
+  width: 100%;
+}
+
+.new-question-form form {
+  width: 100%;
 }
 
 .add-question-prompt {
@@ -448,8 +446,14 @@ body{
 
 .submit-answer-choices {
   position: absolute;
-  bottom: 12px;
+  bottom: 13px;
   right: 20px;
+}
+
+.cancel-button {
+  position: absolute;
+  bottom: 13px;
+  right: 90px;
 }
 
 .answer-choice-tbl {
@@ -504,3 +508,4 @@ body{
   top: 0px;
   left: 0px;
 }
+

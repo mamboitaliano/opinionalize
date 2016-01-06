@@ -42,14 +42,14 @@ class QuestionsController < ApplicationController
     # maybe export this out to a helper method to improve legibility?
     response_type = params[:resp_type]
     case response_type
-    when "textinput"
-      @current_question.resp_type = 0
-    when "multichoice"
-      @current_question.resp_type = 1
-    when "chkboxes"
-      @current_question.resp_type = 2
-    else
-      p "invalid parameter value"   # be sure to use this else clause to prevent injection
+      when "textinput"
+        @current_question.resp_type = 0
+      when "multichoice"
+        @current_question.resp_type = 1
+      when "chkboxes"
+        @current_question.resp_type = 2
+      else
+        p "invalid parameter value"   # be sure to use this else clause to prevent injection
     end
     # TODO: write logic to write possible answers to database
     temp_array = []
@@ -58,9 +58,9 @@ class QuestionsController < ApplicationController
         temp_array << v
       end
     end
-
     @current_question.resp_choices = temp_array.join(",")
     @current_question.save
+    p @current_question
 
     if request.xhr?
       p "-- -- -- -- -- -- -- >> request is xhr"

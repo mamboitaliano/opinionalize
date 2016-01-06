@@ -436,7 +436,12 @@ body{
   top: 45px;
 }
 
-.answer-choice {
+.mc-answerchoice {
+  width: 96%;
+  float: right;
+}
+
+.ma-answerchoice {
   width: 96%;
   float: right;
 }

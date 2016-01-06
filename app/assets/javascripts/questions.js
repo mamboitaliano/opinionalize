@@ -117,20 +117,31 @@ $(document).on("click", ".set-resp-type-btn", function(e) {
 });
 
 
-// Function to control radio button actions to display response type options 
+// Function to control radio button actions that display the response type options.
+// When a radio button is checked, all hidden form input fields are set to disabled and any
+// data currently in said fields will not get sent to the db
 $(document).on("change", ".optradio", function() {
 	if (this.value == "textinput") {
 		$('#optradio-r2, #optradio-r3').hide(function() {
+			// TODO: disable other fields to prevent them from being submitted
+			$('.mc-answerchoice, .ma-answerchoice').prop("disabled", true); // <--- you could also select by fieldset id
+			$('.txtinput-resp').prop("disabled", false);
 			$('#optradio-r1').show();
 		});
 	}
 	else if (this.value == "multichoice") {
 		$('#optradio-r1, #optradio-r3').hide(function() {
+			// TODO: disable other fields to prevent them from being submitted
+			$('.txtinput-resp, .ma-answerchoice').prop("disabled", true);
+			$('.mc-answerchoice').prop("disabled", false);
 			$('#optradio-r2').show();
 		});
 	}
 	else {
 		$('#optradio-r1, #optradio-r2').hide(function() {
+			// TODO: disable other fields to prevent them from being submitted
+			$('.txtinput-resp, .mc-answerchoice').prop("disabled", true);
+			$('.ma-answerchoice').prop("disabled", false);
 			$('#optradio-r3').show();
 		});
 	}
@@ -148,7 +159,7 @@ $(document).on('click', "#mc-add-choice", function() {
 	var prev_td = "#l" + (mc_choice_count - 1);
 	var prev_letter = $(prev_td).text();
 	var current_letter = nextChar(prev_letter);
-	var content = "<tr><td class='numerator' id='l" + mc_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='mc-answerchoice" + mc_choice_count + "' placeholder='write an answer choice'></td></tr>";
+	var content = "<tr><td class='numerator' id='l" + mc_choice_count + "'>" + current_letter + "</td><td><input class='mc-answerchoice' id='" + current_letter + "' type='text' name='mc-answerchoice" + mc_choice_count + "' placeholder='write an answer choice'></td></tr>";
 	$("#actbl1").append(content);
 	mc_choice_count++;
 });
@@ -158,7 +169,7 @@ $(document).on('click', "#ma-add-choice", function() {
 	var prev_td = "#n" + (ma_choice_count - 1);
 	var prev_letter = $(prev_td).text();
 	var current_letter = nextChar(prev_letter);
-	var content = "<tr><td class='numerator' id='n" + ma_choice_count + "'>" + current_letter + "</td><td><input class='answer-choice' id='" + current_letter + "' type='text' name='ma-answerchoice" + ma_choice_count + "' placeholder='write an answer choice'></td></tr>";
+	var content = "<tr><td class='numerator' id='n" + ma_choice_count + "'>" + current_letter + "</td><td><input class='ma-answerchoice' id='" + current_letter + "' type='text' name='ma-answerchoice" + ma_choice_count + "' placeholder='write an answer choice'></td></tr>";
 	$("#actbl2").append(content);
 	ma_choice_count++;
 });
@@ -167,12 +178,12 @@ $(document).on('click', "#ma-add-choice", function() {
 // Function to control radio buttons that allow user to choose between a short and a long text input response
 $(document).on("change", ".txtinput-resp", function () {
 	if (this.name = "txt-answerchoice") {
-		alert("this is working");
+		// alert("this is working");
 		// TODO: set the response input type (in the db) to text
 
 	}
 	else {
-		alert("this is working too");
+		// alert("this is working too");
 		// TODO: set the response input type (in the db) to textarea
 	}
 });

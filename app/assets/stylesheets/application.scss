@@ -233,12 +233,12 @@ body{
 .edit_survey_partial {
   border: 3px solid white;
   border-radius: 25px;
-  background-color: rgba(240, 240, 240, 0.5);
+  background-color: rgba(240, 240, 240, 0.7);
   position: absolute;
-  left: 7%;
-  top: 100px;
-  width: 86%;
-  height: 560px;
+  left: 3%;
+  top: 80px;
+  width: 94%;
+  height: 85%;
 }
 
 .edit_survey_partial h3 {
@@ -331,28 +331,35 @@ body{
   font-size: 20px;
 }
 
+#resp-type-button-div {
+  position: relative;
+  display: inline-block;
+  left: 25.5%;
+  height: 40px;
+  width: 100px;
+}
+
 .set-resp-type-btn {
-  float: left;
-  display: block;
-  margin-left: 25%;
-  margin-top: 0px;
   height: 100%;
 }
 
 .required-dropdown {
-  display: block;
-  float: left;
-  margin-left: 20px;
-  height: 100%;
+  display: inline-block;
+  float: right;
+  height: 40px;
+  margin-right: 53px;
 }
 
 .required-dropdown-toggle {
   height: 100%;
+  position: relative;
+  right: 1px;
 }
 
 .required-dropdown ul {
   position: relative;
-  float: right;
+  left: 158px;
+  top: 30px;
 }
 
 .modal {

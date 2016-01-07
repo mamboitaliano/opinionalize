@@ -36,29 +36,35 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    p "UPDATE QUESTION ROUTE HIT ----------------------------------------------"
-    @current_question = Question.find(params[:id])
     # TODO: wite logic to write reponse type to database
     # maybe export this out to a helper method to improve legibility?
-    response_type = params[:resp_type]
-    case response_type
-      when "textinput"
-        @current_question.resp_type = 0
-      when "multichoice"
-        @current_question.resp_type = 1
-      when "chkboxes"
-        @current_question.resp_type = 2
-      else
-        p "invalid parameter value"   # be sure to use this else clause to prevent injection
-    end
-    # TODO: write logic to write possible answers to database
-    temp_array = []
-    params.each do |k, v|
-      if (k.include? "answerchoice") && (v != "")
-        temp_array << v
+    p "UPDATE QUESTION ROUTE HIT ----------------------------------------------"
+    @current_question = Question.find(params[:id])
+    if params.key?(:required)
+      p "KEY FOUND"
+      params[:required] == "true" ? @current_question.required = true : @current_question.required = false
+    else
+      response_type = params[:resp_type]
+      case response_type
+        when "textinput"
+          @current_question.resp_type = 0
+        when "multichoice"
+          @current_question.resp_type = 1
+        when "chkboxes"
+          @current_question.resp_type = 2
+        else
+          p "invalid parameter value"   # be sure to use this else clause to prevent injection
+      end
+      # logic to write possible answers to database
+      temp_array = []
+      params.each do |k, v|
+        if (k.include? "answerchoice") && (v != "")
+          temp_array << v
+        end
+      @current_question.resp_choices = temp_array.join(",")
       end
     end
-    @current_question.resp_choices = temp_array.join(",")
+
     @current_question.save
     p @current_question
 

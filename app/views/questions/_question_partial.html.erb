@@ -6,12 +6,12 @@
   </div>
   
 	<div class="required-dropdown">
-    	<button class="btn btn-primary dropdown-toggle required-dropdown-toggle" type="button" data-toggle="dropdown">required
-    	<span class="caret"></span></button>
-    	<ul class="dropdown-menu required-dropdown-menu">
-      		<li><a href="#">yes</a></li>
-      		<li><a href="#">no</a></li>
-    	</ul>
-  	</div>
+    <button class="btn btn-primary dropdown-toggle required-dropdown-toggle" type="button" data-toggle="dropdown">required
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu required-dropdown-menu">
+      <li><a id="required-yes" href="/surveys/<%= @new_question.survey_id %>/questions/<%= @new_question.id %>">yes</a></li>
+      <li><a id="required-no" href="/surveys/<%= @new_question.survey_id %>/questions/<%= @new_question.id %>">no</a></li>
+    </ul>
+  </div>
 
 </div>

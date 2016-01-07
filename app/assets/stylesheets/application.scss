@@ -257,11 +257,23 @@ body{
   background-color: rgba(240, 240, 240, 0.5) 
 }
 
+.new-question-form p {
+  width: 140px;
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 460px;
+  font-family: 'Exo', sans-serif;
+  font-weight: bold;
+  color: rgba(204, 0, 0, 0.7);
+}
+
 .add-question-btn {
   width: 19%;
   height: 30px;
   float: right;
   margin-right: 5px;
+  display: inline-flex;
 }
 
 .add-question-prompt-container {
@@ -322,13 +334,23 @@ body{
 .question-text {
   width: 50%;
   height: 100%;
-  text-align: center;
+  text-align: left;
   display: flex;
-  align-items: center;
-  justify-content: left;
   margin-left: 30px;
   float: left;
-  font-size: 20px;
+  font-size: 18px;
+  padding-top: 7px;
+}
+
+.resp-type-status {
+  border: 2px solid lime;
+  width: 180px;
+  height: 40px;
+  display: inline;
+  position: absolute;
+  right: 400px;
+  padding-top: 9px;
+  text-align: center;
 }
 
 #resp-type-button-div {
@@ -364,7 +386,7 @@ body{
 
 .required-dropdown ul li {
   border: 2px dashed lime;
-  
+
 }
 
 .modal {

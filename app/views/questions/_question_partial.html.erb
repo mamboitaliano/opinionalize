@@ -1,8 +1,8 @@
 <div class="question-div">
 	<p class="question-text"><%= @new_question.text %></p>
-
+  <p class="resp-type-status">status</p>
   <div id="resp-type-button-div">
-    <button type="submit" formaction="/surveys/<%= @new_question.survey_id %>/questions/<%= @new_question.id %>/edit" class="btn btn-primary set-resp-type-btn">response</button>
+    <button type="submit" formaction="/surveys/<%= @new_question.survey_id %>/questions/<%= @new_question.id %>/edit" class="btn btn-primary set-resp-type-btn" value="response">response</button>
   </div>
   
 	<div class="required-dropdown">

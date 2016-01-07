@@ -2,37 +2,6 @@
 // All this logic will automatically be available in application.js.
 
 
-// AJAX call to make the 'new survey' dialogue fade out and subsequently have 'add question' dialogue
-// fade in when the "create" button is clicked
-$(document).on("click", "#create_survey_btn", function(e) {
-  e.preventDefault();
-  console.log("CREATE SURVEY AJAX CALL WORKING----------------------");
-
-  var form = $(this).parent().children().eq(1).children();
-  var url = $(form).attr("action");
-  var type = "POST";
-  var data = $(form).serialize();
-
-  var request =$.ajax({
-    url: url,
-    type: type,
-    data: data
-  });
-
-  request.done(function(serverData) {
-    console.log("Here is the serverData:");
-    console.log(serverData);
-    console.log("------------------------end--------------------------");
-
-    // Make .survey-title-container fade out and make .ajax-container fade in
-    $('.survey-title-container').fadeOut(500).promise().done(function() {
-      $('.survey-title-container').remove();
-      $(".ajax-container").delay(500).append(serverData).hide().fadeIn("slow");
-    });
-  });
-});
-
-
 // Allows the 'new-question-form' to fade in when the "Add Question" button is clicked
 $(document).on('click', '#show-question-form', function(e) {
 	e.preventDefault();
@@ -74,35 +43,35 @@ $('#add_question').on("submit", function(e){
 // AJAX call to add question to survey
 $(document).on("click", ".add-question-btn", function(e) {
 	e.preventDefault();
-	console.log("ADD QUESTION AJAX CALL WORKING----------------------");
-
-	var form = $(this).parent();
-	var url = $(form).attr('action');
-	var type = "POST";
-	var data = $(form).serialize();
-
-	console.log(data);
-
-	var request = $.ajax({
-		url: url,
-		type: type,
-		data: data
-	});
-
-	request.done(function(serverData) {
-		$('#add_question')[0].reset();
-		$('.new-question-form').animate({
-			top: '+=60'
-		}, 500 ).promise().done(function() {
-			$('.content').prepend(serverData).hide().fadeIn("slow");
+	if ( $.trim($(".new-question-text-box").val()).length === 0 ) {
+		$(".new-question-form p").finish().fadeIn("fast").delay(5000).fadeOut("slow");
+	}
+	else {
+		console.log("ADD QUESTION AJAX CALL WORKING----------------------");
+		var form = $(this).parent();
+		var url = $(form).attr('action');
+		var type = "POST";
+		var data = $(form).serialize();
+		var request = $.ajax({
+			url: url,
+			type: type,
+			data: data
 		});
-		console.log("Server returning _question_partial.html.erb:")
-		console.log(serverData);
-	});
-	request.fail(function(serverData) {
-	// TODO: LOGIC TO HANDLE ERROR CREATING NEW QUESTION
-	});
-	console.log("------------------------end--------------------------");
+		request.done(function(serverData) {
+			$('#add_question')[0].reset();
+			$('.new-question-form').animate({
+				top: '+=60'
+			}, 500 ).promise().done(function() {
+				$('.content').prepend(serverData).hide().fadeIn("slow");
+			});
+			console.log("Server returning _question_partial.html.erb:")
+			console.log(serverData);
+		});
+		request.fail(function(serverData) {
+			// TODO: LOGIC TO HANDLE ERROR CREATING NEW QUESTION
+		});
+		console.log("------------------------end--------------------------");
+	}
 });
 
 
@@ -188,6 +157,7 @@ $(document).on("change", ".txtinput-resp", function () {
 
 
 
+// AJAX call to set the response type and answer choices for a given question
 $(document).on("submit", "#resp-type-submit-form", function(e) {
 	e.preventDefault();
 	console.log("update response type AJAX CALL WORKING----------------------");
@@ -202,6 +172,20 @@ $(document).on("submit", "#resp-type-submit-form", function(e) {
 		// TODO: record successful UPDATE operation in log, remove modal dialog box from DOM
 		$("#resp-type-form-box").remove();
 		$(".modal").dialog("close");
+		if (this.data.search("multichoice") >= 0) {
+			$(".set-resp-type-btn").html("multi choice");	
+		}
+		else if (this.data.search("chkboxes") >= 0) {
+			$(".set-resp-type-btn").html("checkboxes");
+		}
+		else {
+			if (this.data.search("txt-answer") >= 0) {
+				$(".set-resp-type-btn").html("text");
+			}
+			else if (this.data.search("txt-paragraph") >= 0) {
+				$(".set-resp-type-btn").html("text-p");	
+			}
+		}
 	});
 	request.fail(function(serverData) {
 		console.log("error writing response type and options to databse");
@@ -211,6 +195,7 @@ $(document).on("submit", "#resp-type-submit-form", function(e) {
 
 
 
+// Sets action for when the "cancel" button is clicked
 $(document).on("click", ".cancel-button", function(e) {
 	e.preventDefault();
 	$("#resp-type-form-box").remove();
@@ -218,6 +203,9 @@ $(document).on("click", ".cancel-button", function(e) {
 });
 
 
+
+// AJAX calls to set a question's "required" property to true or false
+// TODO: why does request keep hitting .fail instead of .done when the data is being successfully written to the db?
 // control what happens when user sets "required" to yes
 $(document).on("click", "#required-yes", function(e) {
 	e.preventDefault();
@@ -234,12 +222,9 @@ $(document).on("click", "#required-yes", function(e) {
 		console.log("failed to set required question parameter");
 	});
 });
-
 // control what happens when user sets "required" to no
 $(document).on("click", "#required-no", function(e) {
 	e.preventDefault();
-	alert("hit me");
-	debugger
 	var request = $.ajax({
 		url: $(this).attr("href"),
 		type: "PUT",

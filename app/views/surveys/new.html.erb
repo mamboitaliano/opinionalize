@@ -4,7 +4,7 @@
 			<p id="survey-name">name:</p>
 			<div class="survey-title-form">
 				<%= form_tag('/surveys/create', method: "post") %>
-				<%= text_field_tag(:title) %>
+				<%= text_field_tag(:title, nil, :required => true) %>
 			</div>
 			<p id="survey-description">description:</p>
 			<div class="survey-description-form">

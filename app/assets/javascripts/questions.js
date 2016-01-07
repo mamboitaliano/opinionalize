@@ -153,7 +153,6 @@ $(document).on("change", ".optradio", function() {
 function nextChar(c) {
 	return String.fromCharCode(c.charCodeAt(0) + 1);
 }
-
 var mc_choice_count = 3;
 $(document).on('click', "#mc-add-choice", function() {
 	var prev_td = "#l" + (mc_choice_count - 1);
@@ -163,7 +162,6 @@ $(document).on('click', "#mc-add-choice", function() {
 	$("#actbl1").append(content);
 	mc_choice_count++;
 });
-
 var ma_choice_count = 3;
 $(document).on('click', "#ma-add-choice", function() {
 	var prev_td = "#n" + (ma_choice_count - 1);
@@ -193,22 +191,14 @@ $(document).on("change", ".txtinput-resp", function () {
 $(document).on("submit", "#resp-type-submit-form", function(e) {
 	e.preventDefault();
 	console.log("update response type AJAX CALL WORKING----------------------");
-
 	var url = $(this).attr('action');
-	var type = "PUT";
 	var data = $(this).serialize();
-
-	console.log(data);
-	debugger
-	
 	var request = $.ajax({
 		url: url,
-		type: type,
+		type: "PUT",
 		data: data
 	});
-
 	request.done(function(serverData) {
-		console.log("what what");
 		// TODO: record successful UPDATE operation in log, remove modal dialog box from DOM
 		$("#resp-type-form-box").remove();
 		$(".modal").dialog("close");
@@ -219,8 +209,48 @@ $(document).on("submit", "#resp-type-submit-form", function(e) {
 	});
 });
 
+
+
 $(document).on("click", ".cancel-button", function(e) {
 	e.preventDefault();
 	$("#resp-type-form-box").remove();
 	$(".modal").dialog("close");
-})
+});
+
+
+// control what happens when user sets "required" to yes
+$(document).on("click", "#required-yes", function(e) {
+	e.preventDefault();
+	var request = $.ajax({
+		url: $(this).attr("href"),
+		type: "PUT",
+		dataType: "json",
+		data: {"required": "true"}
+	});
+	request.done(function(serverData) {
+		console.log("what what: " + serverData);
+	});
+	request.fail(function(serverData) {
+		console.log("failed to set required question parameter");
+	});
+});
+
+// control what happens when user sets "required" to no
+$(document).on("click", "#required-no", function(e) {
+	e.preventDefault();
+	alert("hit me");
+	debugger
+	var request = $.ajax({
+		url: $(this).attr("href"),
+		type: "PUT",
+		dataType: "json",
+		data: {"required": "false"}
+	});
+	request.done(function(serverData) {
+		console.log("what what: " + serverData);
+	});
+	request.fail(function(serverData) {
+		console.log("failed to set required question parameter");
+	});
+});
+

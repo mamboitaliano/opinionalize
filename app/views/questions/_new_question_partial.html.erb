@@ -1,8 +1,8 @@
 <div class="new-question-form">
 	<form id="add_question" action="/surveys/<%= @current_survey.id %>/questions" method="POST" data-remote="true">
     	<input type="hidden" name="id" value=<%=@current_survey.id%>>
-    	<input type="text" name="text" class="new-question-text-box" placeholder="Question">
-    	<!-- <input type="textarea" name="explanation" class="question-explanation-text-box" placeholder="Explain what you want here..."> -->
-    	<input class="btn btn-primary add-question-btn" type="submit" value="Add Question">
+    	<input type="text" name="text" class="new-question-text-box" placeholder="Question" required>
+    	<p>type a question...</p>
+    	<input class="btn btn-primary add-question-btn" type="submit" value="add question">
     </form>
 </div>

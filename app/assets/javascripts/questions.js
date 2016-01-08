@@ -173,18 +173,21 @@ $(document).on("submit", "#resp-type-submit-form", function(e) {
 		$("#resp-type-form-box").remove();
 		$(".modal").dialog("close");
 		console.log(this.data);
+		var q_id_start = this.url.indexOf("questions") + 10;
+		var q_id = this.url.substring(q_id_start, this.url.length);
+		debugger
 		if (this.data.search("multichoice") >= 0) {
-			$(".set-resp-type-btn").html("multi choice");	
+			$("#q" + q_id + "-status").text("multiple choice");	
 		}
 		else if (this.data.search("chkboxes") >= 0) {
-			$(".set-resp-type-btn").html("checkboxes");
+			$("#q" + q_id + "-status").text("checkboxes");	
 		}
 		else {
-			if (this.data.search("txt-answer") >= 0) {
-				$(".set-resp-type-btn").html("text");
+			if (this.data.search("txt-short") >= 0) {
+				$("#q" + q_id + "-status").text("short text");	
 			}
 			else if (this.data.search("txt-paragraph") >= 0) {
-				$(".set-resp-type-btn").html("text-p");	
+				$("#q" + q_id + "-status").text("paragraph");	
 			}
 		}
 	});

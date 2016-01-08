@@ -172,6 +172,7 @@ $(document).on("submit", "#resp-type-submit-form", function(e) {
 		// TODO: record successful UPDATE operation in log, remove modal dialog box from DOM
 		$("#resp-type-form-box").remove();
 		$(".modal").dialog("close");
+		console.log(this.data);
 		if (this.data.search("multichoice") >= 0) {
 			$(".set-resp-type-btn").html("multi choice");	
 		}

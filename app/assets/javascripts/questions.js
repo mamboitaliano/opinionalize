@@ -221,6 +221,7 @@ $(document).on("click", "#required-yes", function(e) {
 	});
 	request.done(function(serverData) {
 		console.log("what what: " + serverData);
+		debugger;
 	});
 	request.fail(function(serverData) {
 		console.log("failed to set required question parameter");

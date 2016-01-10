@@ -3,11 +3,11 @@
   <div id="resp-type-button-div">
     <button type="submit" formaction="/surveys/<%= @new_question.survey_id %>/questions/<%= @new_question.id %>/edit" class="btn btn-primary set-resp-type-btn" value="response">response</button>
   </div>
-  <div class="status-container">
+  <div id="status-container-1">
     <p class="resp-type-status" id="q<%= @new_question.id %>-status"></p>
   </div>
   
-	<div class="required-dropdown">
+  <div class="required-dropdown">
     <button class="btn btn-primary dropdown-toggle required-dropdown-toggle" type="button" data-toggle="dropdown">required
     <span class="caret"></span></button>
     <ul class="dropdown-menu required-dropdown-menu">
@@ -15,5 +15,7 @@
       <li><a id="required-no" href="/surveys/<%= @new_question.survey_id %>/questions/<%= @new_question.id %>">no</a></li>
     </ul>
   </div>
-
+  <div id="status-container-2">
+    <p id="q<%= @new_question.id %>-status-2"></p>
+  </div>
 </div>

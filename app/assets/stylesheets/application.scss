@@ -345,19 +345,19 @@ body{
 }
 
 .resp-type-status {
-  border: 2px solid lime;
-  width: 176px;
+  width: 98%;
   height: 35px;
-  display: inline;
   position: absolute;
+  left: 4px;
   padding-top: 8px;
+  color: white;
   text-align: center;
 }
 
 #resp-type-button-div {
   position: relative;
   display: inline-block;
-  left: 25.5%;
+  left: 8%;
   height: 40px;
   width: 100px;
 }
@@ -368,9 +368,9 @@ body{
 
 .required-dropdown {
   display: inline-block;
-  float: right;
+  position: relative;
+  left: 257px;
   height: 40px;
-  margin-right: 53px;
 }
 
 .required-dropdown-toggle {
@@ -544,11 +544,41 @@ body{
   left: 0px;
 }
 
-.status-container {
-  border: 2px solid red;
-  width: 180px;
+#status-container-1 {
+  border-top: 2px solid #2e6da4;
+  border-right: 2px solid #2e6da4;
+  border-bottom: 2px solid #2e6da4;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background: rgba(51, 122, 183, 0.5);
+  width: 135px;
   height: 40px;
   display: inline;
   position: absolute;
-  right: 280px;
+  right: 255.5px;
+}
+
+#status-container-2 {
+  border-right: 2px solid #2e6da4;
+  border-top: 2px solid #2e6da4;
+  border-bottom: 2px solid #2e6da4;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background: rgba(51, 122, 183, 0.5);
+  height: 40px;
+  width: 65px;
+  display: inline-block;
+  float: right;
+  margin-right: 55px;
+}
+
+#status-container-2 p {
+  border: 2px solid yellow;
+  width: 94%;
+  height: 35px;
+  position: relative;
+  left: 4px;
+  padding-top: 8px;
+  color: white;
+  text-align: center;
 }

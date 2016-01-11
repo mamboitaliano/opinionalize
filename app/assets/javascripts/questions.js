@@ -225,6 +225,7 @@ $(document).on("click", "#required-yes", function(e) {
 	});
 	request.fail(function(serverData) {
 		console.log("failed to set required question parameter");
+		debugger;
 	});
 });
 // control what happens when user sets "required" to no

@@ -216,12 +216,13 @@ $(document).on("click", "#required-yes", function(e) {
 	var request = $.ajax({
 		url: $(this).attr("href"),
 		type: "PUT",
-		dataType: "json",
 		data: {"required": "true"}
 	});
 	request.done(function(serverData) {
 		console.log("what what: " + serverData);
-		debugger;
+		var q_id_start = this.url.indexOf("questions") + 10;
+		var q_id = this.url.substring(q_id_start, this.url.length);
+		$("#q" + q_id + "-status-2").text("yes");
 	});
 	request.fail(function(serverData) {
 		console.log("failed to set required question parameter");
@@ -234,14 +235,17 @@ $(document).on("click", "#required-no", function(e) {
 	var request = $.ajax({
 		url: $(this).attr("href"),
 		type: "PUT",
-		dataType: "json",
 		data: {"required": "false"}
 	});
 	request.done(function(serverData) {
 		console.log("what what: " + serverData);
+		var q_id_start = this.url.indexOf("questions") + 10;
+		var q_id = this.url.substring(q_id_start, this.url.length);
+		$("#q" + q_id + "-status-2").text("no");
 	});
 	request.fail(function(serverData) {
 		console.log("failed to set required question parameter");
+		debugger
 	});
 });
 

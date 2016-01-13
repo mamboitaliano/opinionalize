@@ -36,14 +36,14 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    # TODO: wite logic to write reponse type to database
-    # maybe export this out to a helper method to improve legibility?
+    # TODO: wite logic to write reponse type to database, maybe export this out to a helper method to improve legibility?
     p "UPDATE QUESTION ROUTE HIT ----------------------------------------------"
     @current_question = Question.find(params[:id])
+
     if params.key?(:required)
       p "KEY FOUND"
-      params[:required] == "true" ? @current_question.required = true : @current_question.required = false
-    else
+      params[:required] == "true" ? @current_question.required = true : @current_question.required = false   
+    else  
       response_type = params[:resp_type]
       case response_type
         when "textinput"
@@ -55,6 +55,7 @@ class QuestionsController < ApplicationController
         else
           p "invalid parameter value"   # be sure to use this else clause to prevent injection
       end
+      
       # logic to write possible answers to database
       temp_array = []
       params.each do |k, v|
@@ -73,6 +74,7 @@ class QuestionsController < ApplicationController
     else
       p "-- -- -- -- -- -- -- >> request is not xhr"
     end
+
   end
 
   def destroy

@@ -175,7 +175,6 @@ $(document).on("submit", "#resp-type-submit-form", function(e) {
 		console.log(this.data);
 		var q_id_start = this.url.indexOf("questions") + 10;
 		var q_id = this.url.substring(q_id_start, this.url.length);
-		debugger
 		if (this.data.search("multichoice") >= 0) {
 			$("#q" + q_id + "-status").text("multiple choice");	
 		}

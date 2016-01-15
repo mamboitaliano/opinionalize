@@ -325,6 +325,7 @@ body{
 
 .content {
   height: 80%;
+  overflow-y: auto;
 }
 
 .question-div {
@@ -369,7 +370,7 @@ body{
 .required-dropdown {
   display: inline-block;
   position: relative;
-  left: 257px;
+  left: 50px;
   height: 40px;
 }
 
@@ -381,7 +382,6 @@ body{
 
 .required-dropdown ul li {
   border: 2px dashed lime;
-
 }
 
 .modal {
@@ -547,9 +547,8 @@ body{
   background: rgba(51, 122, 183, 0.5);
   width: 135px;
   height: 40px;
-  display: inline;
-  position: absolute;
-  right: 255.5px;
+  display: inline-block;
+  margin-left: 70px;
 }
 
 #status-container-2 {

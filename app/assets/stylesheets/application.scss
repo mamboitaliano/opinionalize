@@ -346,17 +346,19 @@ body{
 }
 
 .resp-type-status {
-  width: 98%;
-  height: 10px;
+  width: 95%;
+  height: 96%;
   position: absolute;
-  left: 4px;
-  padding-top: 8px;
+  left: 2px;
+  margin-left: 4px;
+  padding-top: 6px;
   color: white;
   text-align: center;
 }
 
 #resp-type-button-div {
   position: relative;
+  top: -16px;
   display: inline-block;
   left: 8%;
   height: 40px;
@@ -370,6 +372,7 @@ body{
 .required-dropdown {
   display: inline-block;
   position: relative;
+  top: -16px;
   left: 50px;
   height: 40px;
 }
@@ -546,7 +549,8 @@ body{
   border-top-right-radius: 5px;
   background: rgba(51, 122, 183, 0.5);
   width: 135px;
-  height: 40px;
+  height: inherit;
+  position: relative;
   display: inline-block;
   margin-left: 70px;
 }

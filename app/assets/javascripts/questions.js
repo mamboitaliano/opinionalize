@@ -10,7 +10,7 @@ $(document).on('click', '#show-question-form', function(e) {
 	$('.add-question-prompt-container').fadeOut(500).promise().done(function() {
 		$('.add-question-prompt-container').remove();
 	});
-	$(".content").load(link_value);
+	$(".form-container").load(link_value);
 });
 
 
@@ -59,11 +59,7 @@ $(document).on("click", ".add-question-btn", function(e) {
 		});
 		request.done(function(serverData) {
 			$('#add_question')[0].reset();
-			$('.new-question-form').animate({
-				top: '+=60'
-			}, 500 ).promise().done(function() {
-				$('.content').prepend(serverData).hide().fadeIn("slow");
-			});
+			$('.content').append(serverData).hide().fadeIn("slow");
 			console.log("Server returning _question_partial.html.erb:")
 			console.log(serverData);
 		});

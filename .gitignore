@@ -55,3 +55,6 @@ build/
 
 ## Ignore environment_variables.yaml
 /config/environment_variables.yaml
+
+## Ignore 
+/config/initializers/omniauth.rb

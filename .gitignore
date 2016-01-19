@@ -53,5 +53,5 @@ build/
 # Ignore .env
 .env
 
-# Ignore environment_variables.yaml
+## Ignore environment_variables.yaml
 /config/environment_variables.yaml

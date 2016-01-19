@@ -13,7 +13,6 @@ module AuthenticationConcern
   def helper_login(username, password)
     @current_user =  User.find_by(username: username)
     if @current_user.password = password
-
       session[:current_user_id] = @current_user.id
       @current_user.session_id = session[:session_id]
       @current_user.save!

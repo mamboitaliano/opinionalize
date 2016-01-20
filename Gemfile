@@ -16,4 +16,8 @@ gem 'dotenv'
 
 gem 'bootstrap_form'
 
+# jQuery UI
 gem 'jquery-ui-rails'
+
+# HTTParty
+gem 'httparty'

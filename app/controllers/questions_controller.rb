@@ -55,7 +55,7 @@ class QuestionsController < ApplicationController
         else
           p "invalid parameter value"   # be sure to use this else clause to prevent injection
       end
-      
+
       # logic to write possible answers to database
       temp_array = []
       params.each do |k, v|
@@ -65,9 +65,8 @@ class QuestionsController < ApplicationController
       @current_question.resp_choices = temp_array.join(",")
       end
     end
-
+    
     @current_question.save
-    p @current_question
 
     if request.xhr?
       p "-- -- -- -- -- -- -- >> request is xhr"

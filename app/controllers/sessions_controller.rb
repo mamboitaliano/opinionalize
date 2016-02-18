@@ -4,33 +4,31 @@ class SessionsController < ApplicationController
     
     if params[:provider] == "google_oauth2"
       p "Google OAuth 2.0 starting ----------------------------------------------------------------"
+      p env["omniauth.auth"]
       user = User.from_omniauth(env["omniauth.auth"])
       p user
       helper_login(user.username, user.password_hash)
-    
     elsif params[:provider] == "linkedin"
-      @state = "blahblah2"
+      @state = "blahblah2"                    # At some point this needs to use some sort of dynamic SecureRandom value
       if !params.key?(:code)
         p "LinkedIn OAuth 2.0 starting ------------------------------------------------------------"
         redirect_to "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=#{ENV['LINKEDIN_CLIENT_ID']}&redirect_uri=http%3A%2F%2Flocalhost:3000%2Fauth%2Flinkedin%2Fcallback&state=#{@state}&scope=r_basicprofile%20r_emailaddress"
       else
         p "====> found code"
         @code = params[:code]
-        if @state == params[:state] # Compare state values to protect from CSRF attack. If no, throw HTTP 401
+        if @state == params[:state]           # Compare state values to protect from CSRF attack. If no, throw HTTP 401
           p "====> state check OK"
           api = SessionsHelper::Client.new
 
           response = HTTParty.post('https://www.linkedin.com/uas/oauth2/accessToken', 
             :body => api.posts(@code), 
             :headers => {"Content-Type" => "application/x-www-form-urlencoded"})
+            p "====> access token is #{response.parsed_response['access_token']}"
 
-          getLinkedinUser = HTTParty.get('https://www.linkedin.com/v1/people/~:(email-address)', 
+          getLinkedinUser = HTTParty.get('https://www.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,location,picture-url,summary)', 
             :headers => {'Authorization' => "Bearer #{response.parsed_response['access_token']}"})
-
-          p response.parsed_response
-          p "====> access token is #{response.parsed_response['access_token']}"
-          p getLinkedinUser
-          p getLinkedinUser.parsed_response['person']['first_name']
+            p "====> LinkedIn user is #{getLinkedinUser.parsed_response['person']['first_name']} #{getLinkedinUser.parsed_response['person']['last_name']}"
+            p getLinkedinUser
         else
           p "====> STATE MISMATCH, THROWING HTTP 401"
           # throw HTTP 401 error

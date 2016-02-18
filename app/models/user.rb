@@ -21,9 +21,13 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.username = auth.info.email
       user.password = SecureRandom.base64
-      user.oauth_token = auth.credentials.oauth_token
+      user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+
+  def self.from_linkedin(auth)
+
   end
 end
